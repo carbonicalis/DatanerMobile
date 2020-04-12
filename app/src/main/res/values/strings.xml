@@ -44,4 +44,12 @@
     <string name="dialog_new_workplace_msg">Defina o andar e nome do Ambiente</string>
     <string name="existing_floor_alert">"Operação cancelada, Andar já cadastrado"</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="account_name">Account Name</string>
+    <string name="password">Password</string>
+    <string name="password_hint">********</string>
+    <string name="forgot_your_login_info">Forgot your login info?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="remember_my_password">Remember My Password</string>
+    <string name="username">Username</string>
 </resources>
