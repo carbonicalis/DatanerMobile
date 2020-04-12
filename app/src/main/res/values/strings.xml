@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">DatanerMobile</string>
+    <string name="app_name">Dataner</string>
+    <string name="account_name">Account Name</string>
+    <string name="password">Password</string>
+    <string name="password_hint">********</string>
+    <string name="forgot_your_login_info">Forgot your login info?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="remember_my_password">Remember My Password</string>
+    <string name="username">Username</string>
 </resources>
