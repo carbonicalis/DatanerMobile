@@ -9,7 +9,7 @@ object loginPost {
         return Feign.builder()
             .decoder(GsonDecoder())
             .encoder(GsonEncoder())
-            .target(LoginRequests::class.java, "52.4.141.220/login")
+            .target(LoginRequests::class.java, "https://52.4.141.220/login")
     }
 
 }
