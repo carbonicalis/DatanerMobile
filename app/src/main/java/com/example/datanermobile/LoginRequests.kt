@@ -17,14 +17,4 @@ interface LoginRequests {
 
     fun json(@Param("user_name") user: String, @Param("password") password: String)
 
-
-public class Example {
-    @JvmStatic
-    fun main(args: Array<String>) {
-        client.xml(
-            "denominator",
-            "secret"
-        ) // <login "user_name"="denominator" "password"="secret"/>
-        client.json("denominator", "secret") // {"user_name": "denominator", "password": "secret"}
-    }
-}}
+}
