@@ -35,6 +35,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:textAlignment="center"
+            android:id="@+id/edUser"
             android:textColor="@color/colorAccent"
             android:textColorHint="#141414"
 
@@ -45,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textColor="#141212"
+            android:id="@+id/tvPass"
             android:text="@string/password"
             android:layout_marginTop="40dp"/>
 
