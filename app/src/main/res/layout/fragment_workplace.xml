@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="workplaceViewModel"
+            type="com.example.datanermobile.screens.workplace.WorkplaceViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.workplace.WorkplaceFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/workplace_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workplace_title_tv"
+            app:layout_constraintVertical_bias="1.0"
+            tools:itemCount="15"
+            tools:listitem="@layout/list_item_workplace" />
+
+        <Button
+            android:id="@+id/add_floor_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/alturaBtn"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/add_floor"
+            android:textSize="@dimen/button_font"
+            app:layout_constraintEnd_toStartOf="@+id/add_workplace_btn"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/add_workplace_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/alturaBtn"
+            android:layout_marginEnd="@dimen/margin"
+            android:background="@drawable/custom_button"
+            android:text="@string/add_worplace"
+            android:textSize="@dimen/button_font"
+            app:layout_constraintBaseline_toBaselineOf="@+id/add_floor_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/add_floor_btn" />
+
+        <TextView
+            android:id="@+id/floor_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/floor_title"
+            android:textColor="@color/lightBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_floor_btn"
+            tools:text="Andar" />
+
+        <TextView
+            android:id="@+id/workplace_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/workplace_title"
+            android:textColor="@color/lightBlue"
+            app:layout_constraintBaseline_toBaselineOf="@+id/floor_title_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Ambiente" />
+
+        <TextView
+            android:id="@+id/devices_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/devices_title"
+            android:textColor="@color/lightBlue"
+            app:layout_constraintBaseline_toBaselineOf="@+id/workplace_title_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.66"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Devices Ativos" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

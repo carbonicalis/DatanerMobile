@@ -29,4 +29,10 @@
     <string name="tv_update_device_label">Atualize o dispositivo</string>
     <string name="device_update">Atualizar dispositivo</string>
 
+    <string name="add_floor">Adicionar Andar</string>
+    <string name="add_worplace">Adicionar Ambiente</string>
+    <string name="workplace_item">Ambientes:</string>
+    <string name="floor_title">Andar</string>
+    <string name="workplace_title">Ambiente</string>
+    <string name="devices_title">Devices Ativos</string>
 </resources>

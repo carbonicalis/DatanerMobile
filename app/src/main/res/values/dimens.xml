@@ -14,4 +14,12 @@
 
     <dimen name="building_icon_size">100dp</dimen>
     <dimen name="building_text_size">20sp</dimen>
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="icon_size">64dp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="triple_margin">48dp</dimen>
+    <dimen name="button_font">12sp</dimen>
+    <dimen name="textItemSize">15sp</dimen>
+    <dimen name="alturaBtn">40dp</dimen>
 </resources>

@@ -7,4 +7,9 @@
     <color name="dataner_yellow">#FFC000</color>
     <color name="dataner_black">#1A1A1A</color>
     <color name="dataner_gray">#E4E4E4</color>
+    <color name="lightBlue">#42A5F5</color>
+    <color name="listItemText">#000</color>
+    <color name="background_line">#486FD0</color>
+    <color name="white">#FEFEFE</color>
+    <color name="colorButtonNormal">#ffC002</color>
 </resources>
