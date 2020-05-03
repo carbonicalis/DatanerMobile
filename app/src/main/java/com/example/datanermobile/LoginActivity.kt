@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
       fun CredenLogin(v:View){
 
           val loginUser = edUser.text.toString()
-          
+
       }
 }
 
