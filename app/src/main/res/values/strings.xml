@@ -9,4 +9,20 @@
     <string name="signIn">Sign In</string>
 
 
+<!--    <string name="app_name">DatanerMobile</string>-->
+    <string name="add_building_text">Adicionar Filial</string>
+    <string name="add_user_building_text">Adicionar \n Usuário à Filial</string>
+    <string name="details">Detalhes</string>
+
+    <string name="building_name">Nome do Prédio</string>
+    <string name="building_zip_code">CEP</string>
+    <string name="building_country">País</string>
+    <string name="building_state">Estado</string>
+    <string name="building_city">Cidade</string>
+    <string name="building_address_type">Logradouro</string>
+    <string name="building_address">Endereço</string>
+    <string name="building_address_number">Número</string>
+    <string name="building_company">Companhia</string>
+    <string name="building_update">Concluir</string>
+    <string name="building_cancel">Cancelar</string>
 </resources>

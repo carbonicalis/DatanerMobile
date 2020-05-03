@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#03A9F4</color>
     <color name="colorAccent">#090808</color>
     <color name="colorBackground">#010930</color>
+
+    <color name="dataner_yellow">#FFC000</color>
+    <color name="dataner_black">#1A1A1A</color>
+    <color name="dataner_gray">#E4E4E4</color>
 </resources>
