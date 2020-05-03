@@ -36,8 +36,8 @@
             android:layout_marginBottom="20dp"
             android:textAlignment="center"
             android:id="@+id/edUser"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
 
             android:hint="Username"/>
 
@@ -54,8 +54,8 @@
             android:layout_marginBottom="20dp"
             android:id="@+id/edPwd"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             android:hint="@string/password"/>
 
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_bg"
             android:text="@string/signIn"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
