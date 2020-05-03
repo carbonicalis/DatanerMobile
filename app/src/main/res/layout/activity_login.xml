@@ -52,6 +52,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="20dp"
+            android:id="@+id/edPwd"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
