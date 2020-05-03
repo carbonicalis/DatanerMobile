@@ -2,7 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg">
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/fundocerto"
+    >
+
 
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,89 +13,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="br.com.fake.steam.LoginActivity">
+        tools:context="br.com.fake.steam.LoginActivity"
+        >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="0.20in"
-            android:layout_marginBottom="0.10sp"
-            android:src="@mipmap/logoMenor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="#2196F3"
-            android:text="@string/account_name" />
+            android:src="@drawable/logobranco"
+            android:layout_marginTop="30dp"
+
+            />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/login_edittext_bg"
-            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
             android:textAlignment="center"
             android:id="@+id/edUser"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="#141414"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
 
             android:hint="Username"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#141212"
-            android:id="@+id/tvPass"
-            android:text="@string/password"
-            android:layout_marginTop="40dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="textPassword"
             android:background="@drawable/login_edittext_bg"
-            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="#1B1414"
-            android:hint="@string/password_hint"/>
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:hint="@string/password"/>
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="REMEMBER MY PASSWORD"
-            android:textColor="@color/colorAccent"
-            android:theme="@color/colorAccent"
-            android:textSize="6pt"
-            android:layout_marginTop="10dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_bg"
-            android:text="SIGN IN"
-            android:textColor="@color/colorAccent"
-            android:layout_marginTop="20dp"
+            android:text="@string/signIn"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:text="FORGOT YOUR LOGIN INFO?"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"/>
-
+            android:layout_marginRight="70dp"
+            android:onClick="enviar"
+            />
 
     </LinearLayout>
-
 </ScrollView>
