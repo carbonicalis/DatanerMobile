@@ -8,4 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Basic styling for the buttons. -->
+    <style name="BuildingButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin</item>
+        <item name="android:background">@color/dataner_yellow</item>
+        <item name="android:paddingStart">@dimen/default_start_padding</item>
+        <item name="android:paddingTop">@dimen/default_top_padding</item>
+        <item name="android:paddingEnd">@dimen/default_end_padding</item>
+        <item name="android:paddingBottom">@dimen/default_bottom_padding</item>
+        <item name="android:textColor">@color/dataner_black</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--    android:padding="@dimen/default_padding"-->
+
+    <!-- Basic styling for building item -->
+    <style name="BuildingItems">
+        <item name="android:textColor">@color/dataner_black</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
 </resources>
