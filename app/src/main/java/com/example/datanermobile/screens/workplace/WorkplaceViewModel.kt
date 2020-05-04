@@ -15,6 +15,8 @@ class WorkplaceViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
+    val workplaces = database.getAllWorkplaces()
+
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)

@@ -123,6 +123,13 @@ class WorkplaceFragment: Fragment() {
         binding.workplaceList.adapter = adapter
 
 
+        workplaceViewModel.workplaces.observe(viewLifecycleOwner,Observer{
+            it?.let{
+                adapter.submitList(it)
+            }
+        })
+
+
 
         return binding.root
     }
