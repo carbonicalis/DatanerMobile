@@ -38,7 +38,8 @@
             app:layout_constraintEnd_toStartOf="@+id/add_workplace_btn"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> workplaceViewModel.onClickNewFloor()}"/>
 
         <Button
             android:id="@+id/add_workplace_btn"
@@ -46,11 +47,12 @@
             android:layout_height="@dimen/alturaBtn"
             android:layout_marginEnd="@dimen/margin"
             android:background="@drawable/custom_button"
-            android:text="@string/add_worplace"
+            android:text="@string/add_workplace"
             android:textSize="@dimen/button_font"
             app:layout_constraintBaseline_toBaselineOf="@+id/add_floor_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/add_floor_btn" />
+            app:layout_constraintStart_toEndOf="@+id/add_floor_btn"
+            android:onClick="@{() -> workplaceViewModel.onClickNewWorkPlace()}"/>/>
 
         <TextView
             android:id="@+id/floor_title_tv"
