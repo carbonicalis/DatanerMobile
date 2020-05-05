@@ -1,4 +1,4 @@
-package com.example.datanermobile.building.update
+package com.example.datanermobile.building.create
 
 import android.content.Context
 import android.os.Bundle
@@ -15,42 +15,40 @@ import androidx.navigation.fragment.findNavController
 import com.example.datanermobile.R
 import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingDatabase
-import com.example.datanermobile.databinding.BuildingUpdateFragmentBinding
+import com.example.datanermobile.databinding.BuildingCreateFragmentBinding
 
-class BuildingUpdateFragment : Fragment() {
+class BuildingCreateFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: BuildingUpdateFragmentBinding = DataBindingUtil.inflate(
+        val binding: BuildingCreateFragmentBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.building_update_fragment,
+            R.layout.building_create_fragment,
             container,
             false
         )
 
         val application = requireNotNull(this.activity).application
-        val arguments = BuildingUpdateFragmentArgs.fromBundle(requireArguments())
 
         val dataSource = BuildingDatabase
             .getInstance(application).buildingDatabaseDao
 
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(dataSource, arguments.buildingKey)
+            BuildingCreateViewModelFactory(dataSource)
 
-        val buildingUpdateViewModel = ViewModelProvider(
+        val buildingCreateViewModel = ViewModelProvider(
             this,
             buildingUpdateViewModelFactory
-        ).get(BuildingUpdateViewModel::class.java)
+        ).get(BuildingCreateViewModel::class.java)
 
-        binding.buildingUpdateViewModel = buildingUpdateViewModel
+        binding.buildingCreateViewModel = buildingCreateViewModel
         binding.lifecycleOwner = this
 
-        binding.btBuildingUpdate.setOnClickListener {
-            buildingUpdateViewModel.onUpdate(
+        binding.btBuildingCreate.setOnClickListener {
+            buildingCreateViewModel.onInsert(
                 Building(
-                    buildingId = arguments.buildingKey,
                     name = binding.etBuildingName.text.toString(),
                     country = binding.etBuildingCountry.text.toString(),
                     state = binding.etBuildingState.text.toString(),
@@ -64,18 +62,13 @@ class BuildingUpdateFragment : Fragment() {
             )
         }
 
-        binding.ivDelete.setOnClickListener {
-            buildingUpdateViewModel.onDelete(arguments.buildingKey)
-        }
-
-        buildingUpdateViewModel.navigateToBuildings.observe(viewLifecycleOwner, Observer {
+        buildingCreateViewModel.navigateToBuildings.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigate(
-                    BuildingUpdateFragmentDirections.actionBuildingUpdateFragmentToBuildingFragment()
+                    BuildingCreateFragmentDirections.actionBuildingCreateFragmentToBuildingFragment()
                 )
-                // Reset state to make sure we only navigate once, even if the device
-                // has a configuration change.
-                buildingUpdateViewModel.doneNavigating()
+
+                buildingCreateViewModel.doneNavigating()
             }
 
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

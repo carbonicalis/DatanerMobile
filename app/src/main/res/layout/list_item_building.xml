@@ -10,14 +10,24 @@
             type="com.example.datanermobile.building.network.Building" />
 
         <variable
+            name="buildingRetrofit"
+            type="com.example.datanermobile.building.network.BuildingRetrofit" />
+
+        <variable
             name="clickListener"
             type="com.example.datanermobile.building.BuildingListener" />
     </data>
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:onClick="@{() -> clickListener.onClick(building)}"-->
+<!--        android:orientation="vertical">-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> clickListener.onClick(building)}"
+        android:onClick="@{() -> clickListener.onClick(buildingRetrofit)}"
         android:orientation="vertical">
 
         <ImageView
@@ -33,13 +43,37 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/building" />
 
+        <!--        <TextView-->
+        <!--            android:id="@+id/building_name"-->
+        <!--            style="@style/BuildingItems"-->
+        <!--            android:layout_marginStart="@dimen/default_margin"-->
+        <!--            android:layout_marginEnd="@dimen/default_margin"-->
+        <!--            android:textSize="@dimen/building_text_size"-->
+        <!--            app:buildingName="@{building}"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/building_image"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/building_image"-->
+        <!--            tools:text="Bandtec Paulista" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/building_devices"-->
+        <!--            style="@style/BuildingItems"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            app:buildingDevices="@{building}"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/building_name"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/building_name"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/building_name"-->
+        <!--            tools:text="37/50 devices ativos" />-->
+
         <TextView
             android:id="@+id/building_name"
             style="@style/BuildingItems"
             android:layout_marginStart="@dimen/default_margin"
             android:layout_marginEnd="@dimen/default_margin"
             android:textSize="@dimen/building_text_size"
-            app:buildingName="@{building}"
+            app:buildingName="@{buildingRetrofit}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/building_image"
@@ -50,7 +84,7 @@
             android:id="@+id/building_devices"
             style="@style/BuildingItems"
             android:layout_marginTop="24dp"
-            app:buildingDevices="@{building}"
+            app:buildingDevices="@{buildingRetrofit}"
             app:layout_constraintEnd_toEndOf="@+id/building_name"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/building_name"

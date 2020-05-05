@@ -51,14 +51,29 @@ class BuildingFragment : Fragment() {
         val adapter = BuildingAdapter(BuildingListener { buildingId ->
             Toast.makeText(application, "cliquei no $buildingId", Toast.LENGTH_LONG).show()
             buildingId.let {
-                findNavController().navigate(BuildingFragmentDirections
-                    .actionBuildingFragmentToBuildingUpdateFragment(it))
+                findNavController().navigate(
+                    BuildingFragmentDirections
+                        .actionBuildingFragmentToBuildingUpdateFragment(it)
+                )
             }
         })
 
+        binding.btNewBuilding.setOnClickListener {
+            findNavController().navigate(
+                BuildingFragmentDirections
+                    .actionBuildingFragmentToBuildingCreateFragment()
+            )
+        }
+
         binding.buildingList.adapter = adapter
 
-        buildingViewModel.buildings.observe(viewLifecycleOwner, Observer {
+//        buildingViewModel.buildings.observe(viewLifecycleOwner, Observer {
+//            it?.let {
+//                adapter.submitList(it)
+//            }
+//        })
+
+        buildingViewModel.buildingsRetrofit.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
             }

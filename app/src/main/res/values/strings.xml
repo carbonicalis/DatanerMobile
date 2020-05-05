@@ -25,4 +25,7 @@
     <string name="building_company">Companhia</string>
     <string name="building_update">Concluir</string>
     <string name="building_cancel">Cancelar</string>
+    <string name="building_create">Adicionar Filial</string>
+    <string name="tv_new_building_label">Adicione uma filial</string>
+    <string name="tv_update_building_label">Editar</string>
 </resources>
