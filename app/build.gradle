@@ -109,4 +109,5 @@ dependencies {
 
     implementation 'io.github.openfeign:feign-core:9.7.0'
     implementation 'io.github.openfeign:feign-gson:9.7.0'
+
 }
