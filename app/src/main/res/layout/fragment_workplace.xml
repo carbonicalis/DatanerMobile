@@ -52,7 +52,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/add_floor_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/add_floor_btn"
-            android:onClick="@{() -> workplaceViewModel.onClickNewWorkPlace()}"/>/>
+            android:onClick="@{() -> workplaceViewModel.onClickNewWorkplace()}"/>/>
 
         <TextView
             android:id="@+id/floor_title_tv"

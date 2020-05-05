@@ -31,6 +31,10 @@ class WorkplaceViewModel(
     val showNewWorkplaceDialog: LiveData<Boolean>
         get() = _showNewWorkplaceDialog
 
+    private val _showEditWorkplaceDialog = MutableLiveData<Int>()
+    val showEditWorkplaceDialog: LiveData<Int>
+        get() = _showEditWorkplaceDialog
+
     private var _showSnackbarEvent = MutableLiveData<Boolean>()
     val showSnackBarEvent: LiveData<Boolean>
         get() = _showSnackbarEvent
@@ -43,9 +47,18 @@ class WorkplaceViewModel(
         _showNewFloorDialog.value = true
     }
 
-    fun onClickNewWorkPlace() {
+    fun doneCreatingFloor() {
+        _showNewFloorDialog.value = false
+    }
+
+    fun onClickNewWorkplace() {
         _showNewWorkplaceDialog.value = true
     }
+
+    fun doneCreatingWorkplace() {
+        _showNewWorkplaceDialog.value = false
+    }
+
 
     fun newFloor(buildingId: Int, floorNumber: String) {
 
@@ -57,9 +70,8 @@ class WorkplaceViewModel(
         }
     }
 
-    fun newWorlplace(buildingId: Int, floorNumber: String, workplaceName: String) {
+    fun newWorkplace(buildingId: Int, floorNumber: Int, workplaceName: String) {
         uiScope.launch {
-            Log.i("GustavoH", "NewFloor $buildingId, $floorNumber, $workplaceName")
             val workplace =
                 Workplace(0, buildingId, floorNumber, floorNumber.toInt(), workplaceName, "0/0")
             insert(workplace)
@@ -67,14 +79,37 @@ class WorkplaceViewModel(
 
     }
 
+    fun updateWorkplace(
+        buildingId: Int,
+        workplaceId: Int,
+        workplaceName: String,
+        floorNumber: Int
+    ) {
+        uiScope.launch {
+            val workplace =
+                Workplace(
+                    workplaceId,
+                    buildingId,
+                    floorNumber,
+                    floorNumber,
+                    workplaceName,
+                    "0/0"
+                )
+            update(workplace)
+        }
+    }
+
     private suspend fun insert(workplace: Workplace) {
-        Log.i("GustavoH", "Insert()")
         withContext(Dispatchers.IO) {
             database.insert(workplace)
 
-            val teste = database.getLastWorkplace()
+        }
+    }
 
-            Log.i("GustavoH", "TESTE ${teste.description}")
+    private suspend fun update(workplace: Workplace) {
+        withContext(Dispatchers.IO) {
+            database.update(workplace)
+
         }
     }
 

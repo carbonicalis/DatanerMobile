@@ -31,6 +31,7 @@
 
     <string name="add_floor">Adicionar Andar</string>
     <string name="add_workplace">Adicionar Ambiente</string>
+    <string name="confirm_update_workplace">Salvar</string>
     <string name="add_worplace">Adicionar Ambiente</string>
     <string name="workplace_item">Ambientes:</string>
     <string name="floor_title">Andar</string>
@@ -39,6 +40,7 @@
     <string name="dialog_new_floor_title">Adicionar Novo Andar</string>
     <string name="add_new">Adicionar</string>
     <string name="dialog_new_workplace_title">Novo Ambiente</string>
+    <string name="dialog_update_workplace_title">Editar Ambiente</string>
     <string name="dialog_new_workplace_msg">Defina o andar e nome do Ambiente</string>
     <string name="existing_floor_alert">"Operação cancelada, Andar já cadastrado"</string>
     <string name="cancelar">Cancelar</string>

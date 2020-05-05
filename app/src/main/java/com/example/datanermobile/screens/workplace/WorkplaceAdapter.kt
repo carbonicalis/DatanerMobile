@@ -1,26 +1,22 @@
 package com.example.datanermobile.screens.workplace
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.datanermobile.R
 import com.example.datanermobile.databinding.ListItemWorkplaceBinding
 import com.example.datanermobile.screens.workplace.database.Workplace
 
 
-class WorkplaceAdapter :
+class WorkplaceAdapter(val clickListener: WorkplaceListener) :
     ListAdapter<Workplace, WorkplaceAdapter.ViewHolder>(WorkplaceDiffCallback()) {
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
 
-        holder.bind(item)
+        holder.bind(item, clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,8 +26,12 @@ class WorkplaceAdapter :
     class ViewHolder private constructor(val binding: ListItemWorkplaceBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Workplace) {
+        fun bind(
+            item: Workplace,
+            clickListener: WorkplaceListener
+        ) {
             binding.workplace = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -55,4 +55,8 @@ class WorkplaceDiffCallback : DiffUtil.ItemCallback<Workplace>() {
     override fun areContentsTheSame(oldItem: Workplace, newItem: Workplace): Boolean {
         return oldItem == newItem
     }
+}
+
+class WorkplaceListener(val clickListner: (workplaceId: Int, workplaceNumber: Int,workplaceName: String ) -> Unit) {
+    fun onClickUpdate(workplace: Workplace) = clickListner(workplace.workplaceId, workplace.number, workplace.description)
 }

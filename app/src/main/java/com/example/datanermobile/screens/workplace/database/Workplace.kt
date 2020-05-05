@@ -12,7 +12,7 @@ data class Workplace(
     @ColumnInfo(name = "buildind_id")
     val buildingId: Int,
     @ColumnInfo(name = "number")
-    val number: String,
+    val number: Int,
     @ColumnInfo(name = "floor_id")
     val floorId: Int,
     @ColumnInfo(name = "description")

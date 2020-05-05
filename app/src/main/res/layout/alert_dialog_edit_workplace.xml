@@ -4,27 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="25dp"
-        android:text="@string/dialog_new_workplace_msg"
-        />
-    <EditText
-        android:id="@+id/new_workplace_number_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Digite o número do andar"
-        android:inputType="numberSigned"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"/>
 
     <EditText
-        android:id="@+id/new_workplace_name_edit"
+        android:id="@+id/update_workplace_number_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite o nome do ambiente"
+        android:hint="Digite o novo número do andar"
+        android:inputType="numberSigned"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        />
+
+    <EditText
+        android:id="@+id/update_workplace_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o novo nome do ambiente"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
 
