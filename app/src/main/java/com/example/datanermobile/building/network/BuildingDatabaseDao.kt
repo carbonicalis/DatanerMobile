@@ -19,7 +19,7 @@ interface BuildingDatabaseDao {
     fun get(id: Int): LiveData<Building>
 
     @Query("DELETE FROM building WHERE buildingId = :id")
-    fun clear(id: Int)
+    fun delete(id: Int)
 
     @Query("SELECT * FROM building where company_id = :id")
     fun getAllBuildingsByCompanyId(id: Int): LiveData<List<Building>>

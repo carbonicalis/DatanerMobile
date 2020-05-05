@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_buildingFragment_to_buildingUpdateFragment"
             app:destination="@id/buildingUpdateFragment" />
+        <action
+            android:id="@+id/action_buildingFragment_to_buildingCreateFragment"
+            app:destination="@id/buildingCreateFragment" />
     </fragment>
     <fragment
         android:id="@+id/buildingUpdateFragment"
@@ -22,9 +25,20 @@
             android:id="@+id/action_buildingUpdateFragment_to_buildingFragment"
             app:destination="@id/buildingFragment"
             app:launchSingleTop="false"
+            app:popUpTo="@id/buildingFragment"
             app:popUpToInclusive="true" />
         <argument
             android:name="buildingKey"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/buildingCreateFragment"
+        android:name="com.example.datanermobile.building.create.BuildingCreateFragment"
+        android:label="BuildingCreateFragment" >
+        <action
+            android:id="@+id/action_buildingCreateFragment_to_buildingFragment"
+            app:destination="@id/buildingFragment"
+            app:popUpTo="@id/buildingFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
