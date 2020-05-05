@@ -1,5 +1,6 @@
 package com.example.datanermobile
 
+import android.app.DownloadManager
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +9,14 @@ import android.content.Intent
 import android.system.OsConstants
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
 
 
 class LoginActivity : AppCompatActivity() {
 
     var preferencias:SharedPreferences? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,24 +24,39 @@ class LoginActivity : AppCompatActivity() {
         preferencias = getPreferences(Context.MODE_PRIVATE)
 
         val user = preferencias?.getString("usuário", "")
-
+      //  val request = Intent(this, LoginRequests::class.java)
+       // startActivityForResult(intent, REQUEST_CODE)
         edUser.setText(user)
+
+
+
 
     }
 
     fun enviar(v:View){
         val user = edUser.text.toString()
+        val pass: String = edPwd.text.toString()
        // val tela2 = Intent(this, BuildingActivity::class.java)
-
         val editor = preferencias?.edit()
 
-        editor?.putString("usuário", user)
+
+
+        editor?.putString("username", user)
+        editor?.putString("password", pass)
 
         editor?.commit()
         //startActivity(BuildingActivity)
 
 
+
     }
+
+
+
+
+    //companion object {
+      //  private const val REQUEST_CODE = 200
+    //}
 
 
 }
