@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.system.OsConstants
 import android.view.View
+import com.example.datanermobile.building.BuildingActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,11 +24,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         preferencias = getPreferences(Context.MODE_PRIVATE)
 
-        val user = preferencias?.getString("usuário", "")
+        val user = preferencias?.getString(getString(R.string.username_key), "")
+        val pass = preferencias?.getString(getString(R.string.password_key), "")
       //  val request = Intent(this, LoginRequests::class.java)
        // startActivityForResult(intent, REQUEST_CODE)
         edUser.setText(user)
-
+        edPwd.setText(pass)
 
 
 
@@ -36,16 +38,16 @@ class LoginActivity : AppCompatActivity() {
     fun enviar(v:View){
         val user = edUser.text.toString()
         val pass: String = edPwd.text.toString()
-       // val tela2 = Intent(this, BuildingActivity::class.java)
+        val tela2 = Intent(this, BuildingActivity::class.java)
         val editor = preferencias?.edit()
 
 
 
-        editor?.putString("username", user)
-        editor?.putString("password", pass)
+        editor?.putString(getString(R.string.username_key), user)
+        editor?.putString(getString(R.string.password_key), pass)
 
         editor?.commit()
-        //startActivity(BuildingActivity)
+        startActivity(tela2)
 
 
 
