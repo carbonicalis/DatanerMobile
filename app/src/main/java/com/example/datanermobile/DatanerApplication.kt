@@ -21,6 +21,19 @@ class DatanerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+//        val urlPath = "https://52.4.141.220/"
+//        try {
+//            (URL(urlPath).openConnection() as HttpsURLConnection).apply {
+//                sslSocketFactory = createSocketFactory(listOf("TLSv1.2"))
+//                hostnameVerifier = HostnameVerifier { _, _ -> true }
+//                readTimeout = 5_000
+//            }.inputStream.use {
+//                it.copyTo(System.out)
+//            }
+//        } catch (e: Exception) {
+//            throw e
+//        }
+
 //        // Load CAs from an InputStream
 //        // (could be from a resource or ByteArrayInputStream or ...)
 //        val cf: CertificateFactory = CertificateFactory.getInstance("X.509")
@@ -58,3 +71,13 @@ class DatanerApplication : Application() {
 //        inputStream.copyTo(System.out)
     }
 }
+
+//private fun createSocketFactory(protocols: List<String>) =
+//    SSLContext.getInstance(protocols[0]).apply {
+//        val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+//            override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
+//            override fun checkClientTrusted(certs: Array<X509Certificate>, authType: String) = Unit
+//            override fun checkServerTrusted(certs: Array<X509Certificate>, authType: String) = Unit
+//        })
+//        init(null, trustAllCerts, SecureRandom())
+//    }.socketFactory

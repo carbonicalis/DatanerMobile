@@ -114,7 +114,7 @@ class BuildingViewModel(
 
     private fun getBuildings(id: Int) {
         uiScope.launch {
-            val propertiesDeferred = BuildingApi.retrofitService.getProperties(id)
+            val propertiesDeferred = BuildingApi.retrofitService.getBuildingAsync(id)
             println("propertiesDeferred is $propertiesDeferred")
             try {
                 println("cheguei no try")

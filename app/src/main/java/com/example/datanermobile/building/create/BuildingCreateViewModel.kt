@@ -1,7 +1,6 @@
 package com.example.datanermobile.building.create
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.datanermobile.building.network.Building
@@ -35,7 +34,7 @@ class BuildingCreateViewModel (
         uiScope.launch {
             insert(building)
 
-            val propertiesDeferred = BuildingApi.retrofitService.createBuilding(building)
+            val propertiesDeferred = BuildingApi.retrofitService.createBuildingAsync(building)
 
             try {
                 propertiesDeferred.await()

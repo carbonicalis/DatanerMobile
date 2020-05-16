@@ -1,5 +1,6 @@
 package com.example.datanermobile.building.network
 
+import android.content.Context
 import android.os.Parcelable
 import androidx.lifecycle.LiveData
 import androidx.room.ColumnInfo
@@ -28,6 +29,19 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import java.security.KeyManagementException
+import java.security.KeyStore
+import java.security.NoSuchAlgorithmException
+import java.security.SecureRandom
+import java.security.cert.Certificate
+import java.security.cert.CertificateException
+import java.security.cert.CertificateFactory
+import java.security.cert.X509Certificate
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLSocketFactory
+import javax.net.ssl.TrustManager
+import javax.net.ssl.TrustManagerFactory
+import javax.net.ssl.X509TrustManager
 
 //@Parcelize
 @Entity(tableName = "building")
@@ -144,8 +158,9 @@ data class BuildingRetrofitPut(
     val companyId: Int
 )
 
-//private const val BUILDING_BASE_URL = "http://10.0.0.105:7000/"
-private const val BUILDING_BASE_URL = "http://52.4.141.220/"
+private const val BUILDING_BASE_URL = "http://10.0.0.105:7000/"
+//private const val BUILDING_BASE_URL = "http://52.4.141.220/"
+//private const val BUILDING_BASE_URL = "https://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/building/"
 //private const val BUILDING_BASE_URL = "http://52.45.180.127:7002/"
 
@@ -167,19 +182,23 @@ private val retrofit = Retrofit.Builder()
         .client(OkHttpClient())
         .build()
 interface BuildingApiService {
-    @GET("building/all/{id}")
-    fun getProperties(@Path("id") id: Int): Deferred<List<BuildingRetrofit>>
+//    @GET("building/all/{id}")
+    @GET("all/{id}")
+    fun getBuildingAsync(@Path("id") id: Int): Deferred<List<BuildingRetrofit>>
 
-    @PUT("building/")
+//    @PUT("building/")
+    @PUT
 //    fun updateBuilding(@Body building: BuildingRetrofitPut): Deferred<ResponseBody>
-    fun updateBuilding(@Body building: Building): Deferred<ResponseBody>
+    fun updateBuildingAsync(@Body building: Building): Deferred<ResponseBody>
 //    fun updateBuilding(@Body building: RequestBody): Deferred<Any>
 
-    @POST("building/")
-    fun createBuilding(@Body building: Building): Deferred<ResponseBody>
+//    @POST("building/")
+    @POST
+    fun createBuildingAsync(@Body building: Building): Deferred<ResponseBody>
 
-    @DELETE("building/{id}")
-    fun deleteBuilding(@Path("id") id: Int): Deferred<ResponseBody>
+//    @DELETE("building/{id}")
+    @DELETE("{id}")
+    fun deleteBuildingAsync(@Path("id") id: Int): Deferred<ResponseBody>
 }
 object BuildingApi {
     val retrofitService: BuildingApiService by lazy {

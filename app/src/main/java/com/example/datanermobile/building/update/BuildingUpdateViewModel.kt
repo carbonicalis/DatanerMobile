@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingApi
 import com.example.datanermobile.building.network.BuildingDatabaseDao
-import com.example.datanermobile.building.network.BuildingRetrofit
 import com.example.datanermobile.building.network.BuildingRetrofitPut
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -87,7 +86,7 @@ class BuildingUpdateViewModel(
             )
 //            val propertiesDeferred = BuildingApi.retrofitService.updateBuilding(body)
 //            val propertiesDeferred = BuildingApi.retrofitService.updateBuilding(buildingRetrofitPut)
-            val propertiesDeferred = BuildingApi.retrofitService.updateBuilding(building)
+            val propertiesDeferred = BuildingApi.retrofitService.updateBuildingAsync(building)
             println("cheguei no await")
 //            BuildingApi.retrofitService.updateBuilding(buildingRetrofitPut).await()
 
@@ -113,7 +112,7 @@ class BuildingUpdateViewModel(
         uiScope.launch {
             delete(id)
 
-            val propertiesDeferred = BuildingApi.retrofitService.deleteBuilding(id)
+            val propertiesDeferred = BuildingApi.retrofitService.deleteBuildingAsync(id)
 
             try {
                 propertiesDeferred.await()
