@@ -8,9 +8,9 @@ import android.os.Bundle
 import android.content.Intent
 import android.system.OsConstants
 import android.view.View
+import feign.FeignException
 import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
+
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,10 +27,7 @@ class LoginActivity : AppCompatActivity() {
       //  val request = Intent(this, LoginRequests::class.java)
        // startActivityForResult(intent, REQUEST_CODE)
         edUser.setText(user)
-
-
-
-
+        
     }
 
     fun enviar(v:View){
@@ -38,25 +35,23 @@ class LoginActivity : AppCompatActivity() {
         val pass: String = edPwd.text.toString()
        // val tela2 = Intent(this, BuildingActivity::class.java)
         val editor = preferencias?.edit()
-
-
-
         editor?.putString("username", user)
         editor?.putString("password", pass)
 
         editor?.commit()
         //startActivity(BuildingActivity)
+               
+        try {
+            val res = criarUserTask().execute(Usuario(null, user, pass)).get()
+           tvMessage.text = "${res.id} - ${res.user}"
+        }   catch (e: FeignException) {
+            tvMessage.text = "Não foi possível criar o usuário ${e.message} - ${e.status()}"
+        }
 
 
 
     }
-
-
-
-
-    //companion object {
-      //  private const val REQUEST_CODE = 200
-    //}
+    
 
 
 }
