@@ -4,6 +4,6 @@ import feign.RequestLine
 
 interface UsuarioRequests {
 
-    @RequestLine("POST /users")
+    @RequestLine("POST /login")
     fun postUsuario(novoUsuario: Usuario) : Usuario
 }

@@ -10,6 +10,6 @@ object ClienteJson {
         return Feign.builder()
             .decoder(GsonDecoder())
             .encoder(GsonEncoder())
-            .target(UsuarioRequests::class.java, "https://jsonplaceholder.typicode.com")
+            .target(UsuarioRequests::class.java, "https://54.173.83.33:7000")
     }
 }
