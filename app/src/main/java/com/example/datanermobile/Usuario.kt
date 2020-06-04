@@ -1,3 +1,3 @@
 package com.example.datanermobile
 
-data class Usuario(val id:Int?, val user:String, val pwd:String)
+data class Usuario(val userName:String, val token:String)

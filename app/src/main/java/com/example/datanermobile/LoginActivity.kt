@@ -37,17 +37,16 @@ class LoginActivity : AppCompatActivity() {
         val editor = preferencias?.edit()
         editor?.putString("username", user)
         editor?.putString("password", pass)
-
+        val msgErro = "Não foi possível criar o usuário"
         editor?.commit()
         //startActivity(BuildingActivity)
                
-        try {
-            val res = criarUserTask().execute(Usuario(null, user, pass)).get()
-           tvMessage.text = "${res.id} - ${res.user}"
-        }   catch (e: FeignException) {
-            tvMessage.text = "Não foi possível criar o usuário ${e.message} - ${e.status()}"
+        val res = criarUserTask().execute(Usuario(user, pass)).get()
+        if (res==null){
+           tvMessage.text= msgErro
+        } else{
+            tvMessage.text= "${res.token} - ${res.userName}"
         }
-
 
 
     }
