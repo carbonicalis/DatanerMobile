@@ -28,7 +28,7 @@ class BuildingViewModel(
         get() = _buildings
 
     init {
-        onDeleteAll()
+//        onDeleteAll()
 //        onInsert(Building())
         getBuildings(1)
 //        buildingsRetrofit.value?.forEach {
@@ -84,7 +84,7 @@ class BuildingViewModel(
 
     private suspend fun insert(building: Building) {
         withContext(Dispatchers.IO) {
-            database.insert(building)
+//            database.insert(building)
         }
     }
 
@@ -102,7 +102,7 @@ class BuildingViewModel(
 
     private suspend fun deleteAll() {
         withContext(Dispatchers.IO) {
-            database.deleteAll()
+//            database.deleteAll()
         }
     }
 
@@ -112,7 +112,7 @@ class BuildingViewModel(
         viewModelJob.cancel()
     }
 
-    private fun getBuildings(id: Int) {
+    fun getBuildings(id: Int) {
         uiScope.launch {
             val propertiesDeferred = BuildingApi.retrofitService.getBuildingAsync(id)
             println("propertiesDeferred is $propertiesDeferred")
@@ -121,20 +121,20 @@ class BuildingViewModel(
                 val listResult = propertiesDeferred.await()
                 println("listResult is $listResult")
                 listResult.forEach {
-                    onInsert(
-                        Building(
-                            buildingId = it.buildingId,
-                            name = it.name,
-                            country = it.country,
-                            state = it.state,
-                            city = it.city,
-                            addressType = it.addressType,
-                            address = it.address,
-                            addressNumber = it.addressNumber,
-                            zipCode = it.zipCode,
-                            companyId = it.companyId
-                        )
-                    )
+//                    onInsert(
+//                        Building(
+//                            buildingId = it.buildingId,
+//                            name = it.name,
+//                            country = it.country,
+//                            state = it.state,
+//                            city = it.city,
+//                            addressType = it.addressType,
+//                            address = it.address,
+//                            addressNumber = it.addressNumber,
+//                            zipCode = it.zipCode,
+//                            companyId = it.companyId
+//                        )
+//                    )
                 }
                 _buildings.value = listResult
             } catch (e: Exception) {

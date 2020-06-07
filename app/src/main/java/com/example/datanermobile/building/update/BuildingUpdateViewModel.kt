@@ -35,7 +35,7 @@ class BuildingUpdateViewModel(
 //    fun getBuildingRetrofit() = buildingRetrofit
 
     init {
-        building.addSource(database.get(buildingKey), building::setValue)
+//        building.addSource(database.get(buildingKey), building::setValue)
     }
 
 //    init {
@@ -44,7 +44,7 @@ class BuildingUpdateViewModel(
 
     private suspend fun update(building: Building) {
         withContext(Dispatchers.IO) {
-            database.update(building)
+//            database.update(building)
         }
     }
 
@@ -104,7 +104,7 @@ class BuildingUpdateViewModel(
 
     private suspend fun delete(id: Int) {
         withContext(Dispatchers.IO) {
-            database.delete(id)
+//            database.delete(id)
         }
     }
 

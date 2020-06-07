@@ -26,7 +26,7 @@ class BuildingCreateViewModel (
 
     private suspend fun insert(building: Building) {
         withContext(Dispatchers.IO) {
-            database.insert(building)
+//            database.insert(building)
         }
     }
 

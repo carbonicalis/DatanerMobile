@@ -1,21 +1,22 @@
 package com.example.datanermobile.building
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-
 import com.example.datanermobile.R
 import com.example.datanermobile.building.network.BuildingDatabase
 import com.example.datanermobile.databinding.BuildingFragmentBinding
 
 class BuildingFragment : Fragment() {
+
+    lateinit var buildingViewModel: BuildingViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +37,7 @@ class BuildingFragment : Fragment() {
 
         val buildingViewModelFactory = BuildingViewModelFactory(dataSource, application)
 
-        val buildingViewModel = ViewModelProvider(
+        buildingViewModel = ViewModelProvider(
             this,
             buildingViewModelFactory
         ).get(BuildingViewModel::class.java)
@@ -80,5 +81,11 @@ class BuildingFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onResume() {
+        println("VOLTEI NO RESUME")
+        buildingViewModel.getBuildings(1)
+        super.onResume()
     }
 }
