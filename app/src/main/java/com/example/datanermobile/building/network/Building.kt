@@ -43,7 +43,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
-//@Parcelize
+@Parcelize
 @Entity(tableName = "building")
 data class Building(
     @PrimaryKey(autoGenerate = true)
@@ -77,8 +77,8 @@ data class Building(
     val companyId: Int = 0
 
 //    val deviceState: AllDeviceState? = null
-)
-//) : Parcelable
+//)
+) : Parcelable
 
 data class AllDeviceState(
     val devicesOn: Int,

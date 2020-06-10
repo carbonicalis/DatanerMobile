@@ -30,6 +30,9 @@
         <argument
             android:name="buildingKey"
             app:argType="integer" />
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.datanermobile.building.network.Building" />
     </fragment>
     <fragment
         android:id="@+id/buildingCreateFragment"

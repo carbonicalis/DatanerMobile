@@ -82,6 +82,8 @@ class BuildingUpdateFragment : Fragment() {
             imm.hideSoftInputFromWindow(view?.windowToken, 0)
         })
 
+        println("SELECTED PROPERTY ${arguments.selectedProperty}")
+
         return binding.root
     }
 
