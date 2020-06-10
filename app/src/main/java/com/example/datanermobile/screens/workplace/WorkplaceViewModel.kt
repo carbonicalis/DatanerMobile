@@ -1,21 +1,21 @@
 package com.example.datanermobile.screens.workplace
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.datanermobile.screens.workplace.database.Floor
-import com.example.datanermobile.screens.workplace.database.Workplace
-import com.example.datanermobile.screens.workplace.database.WorkplaceDatabaseDao
+import com.example.datanermobile.screens.workplace.network.Floor
+import com.example.datanermobile.screens.workplace.network.Workplace
 import kotlinx.coroutines.*
 
 class WorkplaceViewModel(
-    val database: WorkplaceDatabaseDao,
+
     application: Application
 ) : AndroidViewModel(application) {
 
-    val workplaces = database.getAllWorkplaces()
+    val _workplaces = MutableLiveData<List<Workplace>>()
+    val workplaces: LiveData<List<Workplace>>
+        get() = _workplaces
 
     private var viewModelJob = Job()
 
@@ -74,7 +74,7 @@ class WorkplaceViewModel(
         uiScope.launch {
             val workplace =
                 Workplace(0, buildingId, floorNumber, floorNumber.toInt(), workplaceName, "0/0")
-            insert(workplace)
+            postWorkplace(workplace)
         }
 
     }
@@ -95,22 +95,31 @@ class WorkplaceViewModel(
                     workplaceName,
                     "0/0"
                 )
-            update(workplace)
+            putWorkplace(workplace)
         }
     }
 
-    private suspend fun insert(workplace: Workplace) {
+    private suspend fun postWorkplace(workplace: Workplace) {
         withContext(Dispatchers.IO) {
-            database.insert(workplace)
+//            TODO CHAMAR POST
 
         }
     }
 
-    private suspend fun update(workplace: Workplace) {
+    private suspend fun putWorkplace(workplace: Workplace) {
         withContext(Dispatchers.IO) {
-            database.update(workplace)
+//          TODO CHAMAR PUT
 
         }
+    }
+
+     fun getWorkplaces(){
+         //          TODO CHAMAR GET
+
+         _workplaces.value = listOf<Workplace>(
+            Workplace(1,1,1,1,"TESTE","01/20"),
+            Workplace(2,2,2,2,"TESTE 2","01/20")
+        )
     }
 
 

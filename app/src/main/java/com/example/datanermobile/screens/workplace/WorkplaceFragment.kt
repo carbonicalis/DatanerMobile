@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -16,7 +15,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.FragmentWorkplaceBinding
-import com.example.datanermobile.screens.workplace.database.WorkplaceDataBase
 import com.google.android.material.snackbar.Snackbar
 
 class WorkplaceFragment : Fragment() {
@@ -34,9 +32,7 @@ class WorkplaceFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val dataSource = WorkplaceDataBase.getInstance(application).workplaceDatabaseDao
-
-        val viewModelFactory = WorkplaceViewModelFactory(dataSource, application)
+        val viewModelFactory = WorkplaceViewModelFactory(application)
 
         val workplaceViewModel =
             ViewModelProvider(this, viewModelFactory).get(WorkplaceViewModel::class.java)
@@ -175,7 +171,7 @@ class WorkplaceFragment : Fragment() {
             }
         })
 
-
+        workplaceViewModel.getWorkplaces()
 
         return binding.root
     }

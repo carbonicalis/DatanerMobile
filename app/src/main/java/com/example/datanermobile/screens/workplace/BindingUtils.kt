@@ -2,7 +2,7 @@ package com.example.datanermobile.screens.workplace
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.datanermobile.screens.workplace.database.Workplace
+import com.example.datanermobile.screens.workplace.network.Workplace
 
 @BindingAdapter("floorNumber")
 fun TextView.floorNumber(item: Workplace?) {

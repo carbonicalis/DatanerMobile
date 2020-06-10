@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datanermobile.databinding.ListItemWorkplaceBinding
-import com.example.datanermobile.screens.workplace.database.Workplace
+import com.example.datanermobile.screens.workplace.network.Workplace
 
 
 class WorkplaceAdapter(val clickListener: WorkplaceListener) :

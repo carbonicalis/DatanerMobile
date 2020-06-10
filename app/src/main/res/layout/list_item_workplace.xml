@@ -6,7 +6,7 @@
     <data>
         <variable
             name="workplace"
-            type="com.example.datanermobile.screens.workplace.database.Workplace" />
+            type="com.example.datanermobile.screens.workplace.network.Workplace" />
 
         <variable
             name="clickListener"
