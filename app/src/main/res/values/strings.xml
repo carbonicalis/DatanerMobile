@@ -56,4 +56,8 @@
 
     <string name="buildingId">buildingId</string>
     <string name="workplaceId">workplaceId</string>
+    <string name="tool_bar">Insigths</string>
+    <string name="testando">Testando</string>
+    <string name="top">Top 5</string>
+    <string name="consumos">Maiores consumos de energia</string>
 </resources>
