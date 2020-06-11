@@ -37,7 +37,7 @@ class BuildingUpdateFragment : Fragment() {
             .getInstance(application).buildingDatabaseDao
 
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(dataSource, arguments.buildingKey)
+            BuildingUpdateViewModelFactory(dataSource, arguments.buildingKey, arguments.selectedProperty)
 
         val buildingUpdateViewModel = ViewModelProvider(
             this,

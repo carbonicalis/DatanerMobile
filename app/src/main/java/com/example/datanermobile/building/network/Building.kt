@@ -186,8 +186,8 @@ interface BuildingApiService {
     @GET("all/{id}")
     fun getBuildingAsync(@Path("id") id: Int): Deferred<List<BuildingRetrofit>>
 
-//    @PUT("building/")
-    @PUT
+    @PUT("building/")
+//    @PUT
 //    fun updateBuilding(@Body building: BuildingRetrofitPut): Deferred<ResponseBody>
     fun updateBuildingAsync(@Body building: Building): Deferred<ResponseBody>
 //    fun updateBuilding(@Body building: RequestBody): Deferred<Any>

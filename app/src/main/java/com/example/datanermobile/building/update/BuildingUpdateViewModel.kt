@@ -17,7 +17,8 @@ import okhttp3.RequestBody
 
 class BuildingUpdateViewModel(
     private val database: BuildingDatabaseDao,
-    private val buildingKey: Int = 0
+    private val buildingKey: Int = 0,
+    private val building: Building
 ) : ViewModel() {
 
     private var viewModelJob = Job()
@@ -28,7 +29,7 @@ class BuildingUpdateViewModel(
     val navigateToBuildings: LiveData<Boolean?>
         get() = _navigateToBuildings
 
-    private val building = MediatorLiveData<Building>()
+//    private val building = MediatorLiveData<Building>()
 
     //    private val buildingRetrofit = MediatorLiveData<Building>()
     fun getBuilding() = building
