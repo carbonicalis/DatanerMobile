@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.datanermobile.R
 import com.example.datanermobile.building.network.Building
-import com.example.datanermobile.building.network.BuildingDatabase
 import com.example.datanermobile.databinding.BuildingUpdateFragmentBinding
 
 class BuildingUpdateFragment : Fragment() {

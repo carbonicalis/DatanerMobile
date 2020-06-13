@@ -1,19 +1,14 @@
 package com.example.datanermobile.building.update
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingApi
-import com.example.datanermobile.building.network.BuildingDatabaseDao
-import com.example.datanermobile.building.network.BuildingRetrofitPut
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.RequestBody
 
 class BuildingUpdateViewModel(
     private val buildingKey: Int = 0,

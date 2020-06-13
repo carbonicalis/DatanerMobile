@@ -12,9 +12,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class BuildingCreateViewModel (
-    private val database: BuildingDatabaseDao
-) : ViewModel() {
+class BuildingCreateViewModel : ViewModel() {
 
     private var viewModelJob = Job()
 

@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.datanermobile.R
 import com.example.datanermobile.building.network.Building
-import com.example.datanermobile.building.network.BuildingDatabase
 import com.example.datanermobile.databinding.BuildingCreateFragmentBinding
 
 class BuildingCreateFragment : Fragment() {
@@ -30,13 +29,8 @@ class BuildingCreateFragment : Fragment() {
             false
         )
 
-        val application = requireNotNull(this.activity).application
-
-        val dataSource = BuildingDatabase
-            .getInstance(application).buildingDatabaseDao
-
         val buildingUpdateViewModelFactory =
-            BuildingCreateViewModelFactory(dataSource)
+            BuildingCreateViewModelFactory()
 
         val buildingCreateViewModel = ViewModelProvider(
             this,

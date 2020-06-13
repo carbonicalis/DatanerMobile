@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datanermobile.R
-import com.example.datanermobile.building.network.BuildingDatabase
 import com.example.datanermobile.databinding.BuildingFragmentBinding
 
 class BuildingFragment : Fragment() {

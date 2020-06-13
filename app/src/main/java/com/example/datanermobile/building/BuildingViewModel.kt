@@ -6,13 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingApi
-import com.example.datanermobile.building.network.BuildingDatabaseDao
 import com.example.datanermobile.building.network.BuildingRetrofit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class BuildingViewModel(
     application: Application
