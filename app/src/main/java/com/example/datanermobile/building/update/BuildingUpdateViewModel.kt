@@ -12,7 +12,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class BuildingUpdateViewModel(
-    private val building: Building,
     private val buildingRetrofit: BuildingRetrofit
 ) : ViewModel() {
 

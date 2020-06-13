@@ -24,20 +24,18 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
-@Parcelize
 data class Building(
-    val buildingId: Int = 0,
-    val name: String = "Test Name",
-    val country: String = "Test Country",
-    val state: String = "Test State",
-    val city: String = "Test City",
-    val addressType: String = "Test Address Type",
-    val address: String = "Test Address",
-    val addressNumber: Int = 0,
-    val zipCode: String = "Test Zip Code",
-    val companyId: Int = 0
-//    val deviceState: AllDeviceState? = null
-) : Parcelable
+    val buildingId: Int? = null,
+    val name: String,
+    val country: String,
+    val state: String,
+    val city: String,
+    val addressType: String,
+    val address: String,
+    val addressNumber: Int,
+    val zipCode: String,
+    val companyId: Int
+)
 
 data class AllDeviceState(
     val devicesOn: Int,

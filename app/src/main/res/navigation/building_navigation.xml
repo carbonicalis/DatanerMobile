@@ -28,9 +28,6 @@
             app:popUpTo="@id/buildingFragment"
             app:popUpToInclusive="true" />
         <argument
-            android:name="selectedProperty"
-            app:argType="com.example.datanermobile.building.network.Building" />
-        <argument
             android:name="buildingRetro"
             app:argType="com.example.datanermobile.building.network.BuildingRetrofit" />
     </fragment>

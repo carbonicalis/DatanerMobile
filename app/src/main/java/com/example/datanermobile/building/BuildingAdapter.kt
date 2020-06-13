@@ -88,22 +88,8 @@ class BuildingDiffCallback : DiffUtil.ItemCallback<BuildingRetrofit>() {
 //}
 
 class BuildingListener(
-    val clickListener: (building: Building, buildingRetro: BuildingRetrofit) -> Unit
+    val clickListener: (buildingRetro: BuildingRetrofit) -> Unit
 ) {
-    fun onClick(buildingRetrofit: BuildingRetrofit) = clickListener(
-        Building(
-            buildingId = buildingRetrofit.buildingId,
-            name = buildingRetrofit.name,
-            country = buildingRetrofit.country,
-            state = buildingRetrofit.state,
-            city = buildingRetrofit.city,
-            addressType = buildingRetrofit.addressType,
-            address = buildingRetrofit.address,
-            addressNumber = buildingRetrofit.addressNumber,
-            zipCode = buildingRetrofit.zipCode,
-            companyId = buildingRetrofit.companyId
-        ),
-        buildingRetrofit
-    )
+    fun onClick(buildingRetrofit: BuildingRetrofit) = clickListener(buildingRetrofit)
 }
 

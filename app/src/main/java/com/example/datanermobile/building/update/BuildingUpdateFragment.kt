@@ -32,12 +32,10 @@ class BuildingUpdateFragment : Fragment() {
 
         val arguments = BuildingUpdateFragmentArgs.fromBundle(requireArguments())
 
-        val building = arguments.selectedProperty
-        println("RETROOOOOOOOO ${arguments.buildingRetro}")
         val buildingRetrofit = arguments.buildingRetro
 
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(building, buildingRetrofit)
+            BuildingUpdateViewModelFactory(buildingRetrofit)
 
         val buildingUpdateViewModel = ViewModelProvider(
             this,
@@ -50,7 +48,7 @@ class BuildingUpdateFragment : Fragment() {
         binding.btBuildingUpdate.setOnClickListener {
             buildingUpdateViewModel.onUpdate(
                 Building(
-                    buildingId = building.buildingId,
+                    buildingId = buildingRetrofit.buildingId,
                     name = binding.etBuildingName.text.toString(),
                     country = binding.etBuildingCountry.text.toString(),
                     state = binding.etBuildingState.text.toString(),
@@ -65,7 +63,7 @@ class BuildingUpdateFragment : Fragment() {
         }
 
         binding.ivDelete.setOnClickListener {
-            buildingUpdateViewModel.onDelete(building.buildingId)
+            buildingUpdateViewModel.onDelete(buildingRetrofit.buildingId)
         }
 
         buildingUpdateViewModel.navigateToBuildings.observe(viewLifecycleOwner, Observer {
@@ -81,8 +79,6 @@ class BuildingUpdateFragment : Fragment() {
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view?.windowToken, 0)
         })
-
-        println("SELECTED PROPERTY ${arguments.selectedProperty}")
 
         return binding.root
     }
