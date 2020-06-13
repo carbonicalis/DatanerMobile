@@ -1,11 +1,7 @@
 package com.example.datanermobile.building.network
 
-import android.content.Context
 import android.os.Parcelable
 import androidx.lifecycle.LiveData
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -17,67 +13,29 @@ import feign.gson.GsonEncoder
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
-import okhttp3.Response
 import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
-import java.security.KeyManagementException
-import java.security.KeyStore
-import java.security.NoSuchAlgorithmException
-import java.security.SecureRandom
-import java.security.cert.Certificate
-import java.security.cert.CertificateException
-import java.security.cert.CertificateFactory
-import java.security.cert.X509Certificate
-import javax.net.ssl.SSLContext
-import javax.net.ssl.SSLSocketFactory
-import javax.net.ssl.TrustManager
-import javax.net.ssl.TrustManagerFactory
-import javax.net.ssl.X509TrustManager
 
 @Parcelize
-@Entity(tableName = "building")
 data class Building(
-    @PrimaryKey(autoGenerate = true)
     val buildingId: Int = 0,
-
-    @ColumnInfo(name = "name")
     val name: String = "Test Name",
-
-    @ColumnInfo(name = "country")
     val country: String = "Test Country",
-
-    @ColumnInfo(name = "state")
     val state: String = "Test State",
-
-    @ColumnInfo(name = "city")
     val city: String = "Test City",
-
-    @ColumnInfo(name = "address_type")
     val addressType: String = "Test Address Type",
-
-    @ColumnInfo(name = "address")
     val address: String = "Test Address",
-
-    @ColumnInfo(name = "address_number")
     val addressNumber: Int = 0,
-
-    @ColumnInfo(name = "zip_code")
     val zipCode: String = "Test Zip Code",
-
-    @ColumnInfo(name = "company_id")
     val companyId: Int = 0
-
 //    val deviceState: AllDeviceState? = null
-//)
 ) : Parcelable
 
 data class AllDeviceState(
