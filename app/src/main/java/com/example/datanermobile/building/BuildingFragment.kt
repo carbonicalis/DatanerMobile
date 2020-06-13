@@ -32,10 +32,7 @@ class BuildingFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val dataSource = BuildingDatabase
-            .getInstance(application).buildingDatabaseDao
-
-        val buildingViewModelFactory = BuildingViewModelFactory(dataSource, application)
+        val buildingViewModelFactory = BuildingViewModelFactory(application)
 
         buildingViewModel = ViewModelProvider(
             this,

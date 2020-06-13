@@ -193,7 +193,7 @@ interface BuildingApiService {
 //    fun updateBuilding(@Body building: RequestBody): Deferred<Any>
 
 //    @POST("building/")
-    @POST
+    @POST(".")
     fun createBuildingAsync(@Body building: Building): Deferred<ResponseBody>
 
 //    @DELETE("building/{id}")

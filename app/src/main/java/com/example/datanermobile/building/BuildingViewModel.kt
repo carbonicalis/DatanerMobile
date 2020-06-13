@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class BuildingViewModel(
-    private val database: BuildingDatabaseDao,
     application: Application
 ) : AndroidViewModel(application) {
 
@@ -28,31 +27,8 @@ class BuildingViewModel(
         get() = _buildings
 
     init {
-//        onDeleteAll()
-//        onInsert(Building())
         getBuildings(1)
-//        buildingsRetrofit.value?.forEach {
-//            onInsert(
-//                Building(
-//                    buildingId = it.buildingId,
-//                    name = it.name,
-//                    country = it.country,
-//                    state = it.state,
-//                    city = it.city,
-//                    addressType = it.addressType,
-//                    address = it.address,
-//                    addressNumber = it.addressNumber,
-//                    zipCode = it.zipCode,
-//                    companyId = it.companyId
-//                )
-//            )
-//        }
     }
-
-//    val buildings = database.getAllBuildingsByCompanyId(0)
-//    val buildings = BuildingAsync().onGetBuildings(0)
-//    val buildings: LiveData<List<Building>> = BuildingAsync().execute("1").get()
-//    val buildings = listOf(Building(name = "Teste"), Building(name = "Test"))
 
     private var _showSnackbarEvent = MutableLiveData<Boolean>()
     val showSnackBarEvent: LiveData<Boolean>
@@ -82,30 +58,6 @@ class BuildingViewModel(
         _navigateToUpdateBuilding.value = null
     }
 
-    private suspend fun insert(building: Building) {
-        withContext(Dispatchers.IO) {
-//            database.insert(building)
-        }
-    }
-
-    fun onInsert(building: Building) {
-        uiScope.launch {
-            insert(building)
-        }
-    }
-
-    fun onDeleteAll() {
-        uiScope.launch {
-            deleteAll()
-        }
-    }
-
-    private suspend fun deleteAll() {
-        withContext(Dispatchers.IO) {
-//            database.deleteAll()
-        }
-    }
-
     override fun onCleared() {
         super.onCleared()
 //        onDeleteAll()
@@ -120,22 +72,6 @@ class BuildingViewModel(
                 println("cheguei no try")
                 val listResult = propertiesDeferred.await()
                 println("listResult is $listResult")
-                listResult.forEach {
-//                    onInsert(
-//                        Building(
-//                            buildingId = it.buildingId,
-//                            name = it.name,
-//                            country = it.country,
-//                            state = it.state,
-//                            city = it.city,
-//                            addressType = it.addressType,
-//                            address = it.address,
-//                            addressNumber = it.addressNumber,
-//                            zipCode = it.zipCode,
-//                            companyId = it.companyId
-//                        )
-//                    )
-                }
                 _buildings.value = listResult
             } catch (e: Exception) {
                 println("direto pro catch")
