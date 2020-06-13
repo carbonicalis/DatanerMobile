@@ -1,6 +1,7 @@
 package com.example.datanermobile.building.update
 
 import android.content.Context
+import android.icu.text.MessagePattern
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,9 +33,11 @@ class BuildingUpdateFragment : Fragment() {
         val arguments = BuildingUpdateFragmentArgs.fromBundle(requireArguments())
 
         val building = arguments.selectedProperty
+        println("RETROOOOOOOOO ${arguments.buildingRetro}")
+        val buildingRetrofit = arguments.buildingRetro
 
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(building)
+            BuildingUpdateViewModelFactory(building, buildingRetrofit)
 
         val buildingUpdateViewModel = ViewModelProvider(
             this,

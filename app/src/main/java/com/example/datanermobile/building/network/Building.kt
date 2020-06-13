@@ -11,6 +11,7 @@ import feign.RequestLine
 import feign.gson.GsonDecoder
 import feign.gson.GsonEncoder
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
@@ -89,6 +90,7 @@ object BuildingRequestsBuilder {
 //    }
 //}
 
+@Parcelize
 data class BuildingRetrofit(
     val buildingId: Int,
     val name: String,
@@ -100,8 +102,8 @@ data class BuildingRetrofit(
     val addressNumber: Int,
     val zipCode: String,
     val companyId: Int,
-    val deviceState: AllDeviceState? = null
-)
+    val deviceState: @RawValue AllDeviceState? = null
+): Parcelable
 
 data class BuildingRetrofitPut(
     val buildingId: Int,

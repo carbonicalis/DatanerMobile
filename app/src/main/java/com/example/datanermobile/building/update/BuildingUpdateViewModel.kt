@@ -5,13 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingApi
+import com.example.datanermobile.building.network.BuildingRetrofit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class BuildingUpdateViewModel(
-    private val building: Building
+    private val building: Building,
+    private val buildingRetrofit: BuildingRetrofit
 ) : ViewModel() {
 
     private var viewModelJob = Job()
@@ -22,7 +24,7 @@ class BuildingUpdateViewModel(
     val navigateToBuildings: LiveData<Boolean?>
         get() = _navigateToBuildings
 
-    fun getBuilding() = building
+    fun getBuilding() = buildingRetrofit
 
     fun onUpdate(building: Building) {
         uiScope.launch {

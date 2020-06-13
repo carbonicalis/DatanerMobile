@@ -30,6 +30,9 @@
         <argument
             android:name="selectedProperty"
             app:argType="com.example.datanermobile.building.network.Building" />
+        <argument
+            android:name="buildingRetro"
+            app:argType="com.example.datanermobile.building.network.BuildingRetrofit" />
     </fragment>
     <fragment
         android:id="@+id/buildingCreateFragment"
