@@ -30,14 +30,10 @@ class BuildingUpdateFragment : Fragment() {
             false
         )
 
-        val application = requireNotNull(this.activity).application
         val arguments = BuildingUpdateFragmentArgs.fromBundle(requireArguments())
 
-        val dataSource = BuildingDatabase
-            .getInstance(application).buildingDatabaseDao
-
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(dataSource, arguments.buildingKey, arguments.selectedProperty)
+            BuildingUpdateViewModelFactory(arguments.buildingKey, arguments.selectedProperty)
 
         val buildingUpdateViewModel = ViewModelProvider(
             this,

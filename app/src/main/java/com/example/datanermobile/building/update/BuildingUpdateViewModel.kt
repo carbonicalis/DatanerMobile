@@ -16,7 +16,6 @@ import kotlinx.coroutines.withContext
 import okhttp3.RequestBody
 
 class BuildingUpdateViewModel(
-    private val database: BuildingDatabaseDao,
     private val buildingKey: Int = 0,
     private val building: Building
 ) : ViewModel() {
@@ -29,67 +28,12 @@ class BuildingUpdateViewModel(
     val navigateToBuildings: LiveData<Boolean?>
         get() = _navigateToBuildings
 
-//    private val building = MediatorLiveData<Building>()
-
-    //    private val buildingRetrofit = MediatorLiveData<Building>()
     fun getBuilding() = building
-//    fun getBuildingRetrofit() = buildingRetrofit
-
-    init {
-//        building.addSource(database.get(buildingKey), building::setValue)
-    }
-
-//    init {
-//        buildingRetrofit.addSource(database.get(buildingKey), buildingRetrofit::setValue)
-//    }
-
-    private suspend fun update(building: Building) {
-        withContext(Dispatchers.IO) {
-//            database.update(building)
-        }
-    }
 
     fun onUpdate(building: Building) {
         uiScope.launch {
-            update(building)
-
-            val buildingJson = """
-                {
-                    "buildingId": "${building.buildingId}",
-                    "name": "${building.name}",
-                    "country": "${building.country}",
-                    "state": "${building.state}",
-                    "city": "${building.city}",
-                    "addressType": "${building.addressType}",
-                    "address": "${building.address}",
-                    "addressNumber": "${building.addressNumber}",
-                    "zipCode": "${building.zipCode}",
-                    "companyId": "${building.companyId}"
-                }
-            """
-            val body = RequestBody.create(
-                okhttp3.MediaType
-                    .parse("application/json; charset=utf-8"), buildingJson
-            )
-            println(body.toString())
-
-            val buildingRetrofitPut = BuildingRetrofitPut(
-                buildingId = building.buildingId,
-                name = building.name,
-                country = building.country,
-                state = building.state,
-                city = building.city,
-                addressType = building.addressType,
-                address = building.address,
-                addressNumber = building.addressNumber,
-                zipCode = building.zipCode,
-                companyId = building.companyId
-            )
-//            val propertiesDeferred = BuildingApi.retrofitService.updateBuilding(body)
-//            val propertiesDeferred = BuildingApi.retrofitService.updateBuilding(buildingRetrofitPut)
             val propertiesDeferred = BuildingApi.retrofitService.updateBuildingAsync(building)
             println("cheguei no await")
-//            BuildingApi.retrofitService.updateBuilding(buildingRetrofitPut).await()
 
             try {
                 println("cheguei no try do await")
@@ -103,16 +47,8 @@ class BuildingUpdateViewModel(
         onClose()
     }
 
-    private suspend fun delete(id: Int) {
-        withContext(Dispatchers.IO) {
-//            database.delete(id)
-        }
-    }
-
     fun onDelete(id: Int) {
         uiScope.launch {
-            delete(id)
-
             val propertiesDeferred = BuildingApi.retrofitService.deleteBuildingAsync(id)
 
             try {
