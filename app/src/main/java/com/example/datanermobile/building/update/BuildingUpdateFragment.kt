@@ -31,8 +31,10 @@ class BuildingUpdateFragment : Fragment() {
 
         val arguments = BuildingUpdateFragmentArgs.fromBundle(requireArguments())
 
+        val building = arguments.selectedProperty
+
         val buildingUpdateViewModelFactory =
-            BuildingUpdateViewModelFactory(arguments.buildingKey, arguments.selectedProperty)
+            BuildingUpdateViewModelFactory(building)
 
         val buildingUpdateViewModel = ViewModelProvider(
             this,
@@ -45,7 +47,7 @@ class BuildingUpdateFragment : Fragment() {
         binding.btBuildingUpdate.setOnClickListener {
             buildingUpdateViewModel.onUpdate(
                 Building(
-                    buildingId = arguments.buildingKey,
+                    buildingId = building.buildingId,
                     name = binding.etBuildingName.text.toString(),
                     country = binding.etBuildingCountry.text.toString(),
                     state = binding.etBuildingState.text.toString(),
@@ -60,7 +62,7 @@ class BuildingUpdateFragment : Fragment() {
         }
 
         binding.ivDelete.setOnClickListener {
-            buildingUpdateViewModel.onDelete(arguments.buildingKey)
+            buildingUpdateViewModel.onDelete(building.buildingId)
         }
 
         buildingUpdateViewModel.navigateToBuildings.observe(viewLifecycleOwner, Observer {

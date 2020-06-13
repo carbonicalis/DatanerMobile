@@ -11,7 +11,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class BuildingUpdateViewModel(
-    private val buildingKey: Int = 0,
     private val building: Building
 ) : ViewModel() {
 

@@ -28,9 +28,6 @@
             app:popUpTo="@id/buildingFragment"
             app:popUpToInclusive="true" />
         <argument
-            android:name="buildingKey"
-            app:argType="integer" />
-        <argument
             android:name="selectedProperty"
             app:argType="com.example.datanermobile.building.network.Building" />
     </fragment>
