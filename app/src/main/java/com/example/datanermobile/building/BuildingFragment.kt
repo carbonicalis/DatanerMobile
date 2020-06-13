@@ -46,7 +46,7 @@ class BuildingFragment : Fragment() {
 //        })
 
         val adapter = BuildingAdapter(BuildingListener { retro ->
-            Toast.makeText(application, "cliquei no $${retro.buildingId}", Toast.LENGTH_LONG).show()
+            Toast.makeText(application, "cliquei no ${retro.buildingId}", Toast.LENGTH_LONG).show()
             findNavController().navigate(
                 BuildingFragmentDirections
                     .actionBuildingFragmentToBuildingUpdateFragment(retro)

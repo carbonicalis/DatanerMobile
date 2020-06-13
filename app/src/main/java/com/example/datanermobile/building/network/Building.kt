@@ -1,15 +1,9 @@
 package com.example.datanermobile.building.network
 
 import android.os.Parcelable
-import androidx.lifecycle.LiveData
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import feign.Feign
-import feign.Param
-import feign.RequestLine
-import feign.gson.GsonDecoder
-import feign.gson.GsonEncoder
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 import kotlinx.coroutines.Deferred
@@ -42,51 +36,6 @@ data class AllDeviceState(
     val devicesOff: Int,
     val allDevices: Int
 )
-
-interface BuildingRequests {
-
-    @RequestLine("GET /all/{id}")
-    fun getBuildings(@Param("id") id: Int): LiveData<List<Building>>
-}
-
-object BuildingRequestsBuilder {
-    fun getBuildings(): BuildingRequests {
-        return Feign.builder()
-            .decoder(GsonDecoder())
-            .encoder(GsonEncoder())
-            .target(BuildingRequests::class.java, "https://52.4.141.220/building")
-    }
-}
-
-//class BuildingAsync {
-//    private var viewModelJob = Job()
-//    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-//
-//    private suspend fun getBuildings(id: Int): LiveData<List<Building>> {
-//        return withContext(Dispatchers.IO) {
-//            return@withContext BuildingRequestsBuilder.getBuildings().getBuildings(id)
-//        }
-//    }
-//
-//    fun onGetBuildings(id: Int): LiveData<List<Building>>? {
-//        lateinit var buildings: LiveData<List<Building>>
-//
-//        uiScope.launch {
-//            println(getBuildings(id))
-//            buildings = getBuildings(id)
-//        }
-//
-//        return buildings.also {
-//            println(it)
-//        }
-//    }
-//}
-
-//class BuildingAsync : AsyncTask<String, Void, LiveData<List<Building>>>() {
-//    override fun doInBackground(vararg params: String?): LiveData<List<Building>> {
-//        return BuildingRequestsBuilder.getBuildings().getBuildings(params[0]!!.toInt())
-//    }
-//}
 
 @Parcelize
 data class BuildingRetrofit(
