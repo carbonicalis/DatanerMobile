@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.datanermobile.building.network.Building
 import com.example.datanermobile.building.network.BuildingRetrofit
 import com.example.datanermobile.databinding.ListItemBuildingBinding
 
