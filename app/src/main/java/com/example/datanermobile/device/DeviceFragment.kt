@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.datanermobile.R
@@ -39,6 +40,11 @@ class DeviceFragment : Fragment() {
         binding.deviceViewModel = deviceViewModel
         binding.lifecycleOwner = this
 
+        deviceViewModel.devices.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                println(it)
+            }
+        })
 
         return binding.root
     }
