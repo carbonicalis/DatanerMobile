@@ -1,29 +1,28 @@
-package com.example.datanermobile.building.create
+package com.example.datanermobile.device.create
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.datanermobile.building.network.Building
-import com.example.datanermobile.building.network.BuildingApi
+import com.example.datanermobile.device.network.DeviceApi
+import com.example.datanermobile.device.network.DeviceCreate
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class BuildingCreateViewModel : ViewModel() {
+class DeviceCreateViewModel : ViewModel() {
 
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _navigateToBuildings = MutableLiveData<Boolean?>()
-    val navigateToBuildings: LiveData<Boolean?>
-        get() = _navigateToBuildings
+    private val _navigateToDevices = MutableLiveData<Boolean?>()
+    val navigateToDevices: LiveData<Boolean?>
+        get() = _navigateToDevices
 
-    fun onInsert(building: Building) {
+    fun onInsert(device: DeviceCreate) {
         uiScope.launch {
-            val propertiesDeferred = BuildingApi.retrofitService.createBuildingAsync(building)
+            val propertiesDeferred = DeviceApi.retrofitService.createDeviceAsync(device)
 
             try {
                 propertiesDeferred.await()
@@ -36,11 +35,11 @@ class BuildingCreateViewModel : ViewModel() {
     }
 
     fun doneNavigating() {
-        _navigateToBuildings.value = null
+        _navigateToDevices.value = null
     }
 
     fun onClose() {
-        _navigateToBuildings.value = true
+        _navigateToDevices.value = true
     }
 }
 

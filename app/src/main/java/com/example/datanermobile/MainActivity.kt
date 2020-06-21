@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.datanermobile.building.BuildingActivity
+import com.example.datanermobile.device.DeviceActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         test.setOnClickListener {
             startActivity(Intent(this, BuildingActivity::class.java))
+        }
+
+        test_device.setOnClickListener {
+            startActivity(Intent(this, DeviceActivity::class.java))
         }
     }
 }
