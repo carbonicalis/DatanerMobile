@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/building_name"
+            android:id="@+id/device_name"
             style="@style/BuildingItems"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -30,7 +30,7 @@
             android:textSize="@dimen/building_text_size"
             app:deviceName="@{device}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switch1"
+            app:layout_constraintEnd_toStartOf="@+id/switch_state"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,16 +38,23 @@
             tools:text="Bandtec Paulista" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/switch_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:deviceState="@{device}"
-            app:layout_constraintBottom_toBottomOf="@+id/building_name"
+            app:layout_constraintBottom_toBottomOf="@+id/device_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/building_name"
-            app:layout_constraintTop_toTopOf="@+id/building_name" />
+            app:layout_constraintStart_toEndOf="@+id/device_name"
+            app:layout_constraintTop_toTopOf="@+id/device_name" />
+
+        <TextView
+            android:id="@+id/device_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:enabled="false"
+            app:deviceId="@{device}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

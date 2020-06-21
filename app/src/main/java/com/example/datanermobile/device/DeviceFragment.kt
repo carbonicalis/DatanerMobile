@@ -42,8 +42,12 @@ class DeviceFragment : Fragment() {
         binding.deviceViewModel = deviceViewModel
         binding.lifecycleOwner = this
 
-        val adapter = DeviceAdapter(DeviceListener { devices ->
-            Toast.makeText(application, "cliquei no ${devices.deviceId}", Toast.LENGTH_LONG).show()
+        val adapter = DeviceAdapter(DeviceListener { device ->
+            Toast.makeText(application, "cliquei no ${device.deviceId}", Toast.LENGTH_LONG).show()
+            findNavController().navigate(
+                DeviceFragmentDirections
+                    .actionDeviceFragmentToDeviceUpdateFragment(device)
+            )
         })
 
         binding.btNewDevice.setOnClickListener {
@@ -62,6 +66,12 @@ class DeviceFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onResume() {
+        println("VOLTEI NO RESUME")
+        deviceViewModel.getDevices(1)
+        super.onResume()
     }
 
 }

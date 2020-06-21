@@ -26,5 +26,7 @@
     <string name="device_description">Descrição do dispositivo</string>
     <string name="device_type">Tipo</string>
     <string name="device_workplace">ID do Ambiente</string>
+    <string name="tv_update_device_label">Atualize o dispositivo</string>
+    <string name="device_update">Atualizar dispositivo</string>
 
 </resources>

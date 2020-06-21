@@ -10,8 +10,10 @@ import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 @Parcelize
@@ -38,6 +40,15 @@ data class DeviceCreate(
     val workplaceId: Int
 )
 
+data class DeviceUpdate(
+    val deviceId: String,
+    val deviceIdUpdate: String = deviceId,
+    val deviceDescription: String,
+    val deviceState: Boolean,
+    val deviceType: String,
+    val workplaceId: Int
+)
+
 private const val DEVICE_BASE_URL = "http://10.0.0.106:7001/"
 
 private val retrofit = Retrofit.Builder()
@@ -48,13 +59,21 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface DeviceApiService {
-    //    @GET("device/all/workplace/{id}")
+//    @GET("device/all/workplace/{id}")
     @GET(value = "all/workplace/{id}")
     fun getDeviceAsync(@Path("id") workplaceId: Int): Deferred<List<AllWorkplaceDevices>>
 
-    //    @POST("device/")
+//    @POST("device/")
     @POST(".")
-    fun createDeviceAsyn(@Body device: DeviceCreate): Deferred<ResponseBody>
+    fun createDeviceAsync(@Body device: DeviceCreate): Deferred<ResponseBody>
+
+//    @PUT("device/")
+    @PUT(".")
+    fun updateDeviceAsync(@Body device: DeviceUpdate): Deferred<ResponseBody>
+
+//    @DELETE("device/{id}")
+    @DELETE("{id}")
+    fun deleteDeviceAsync(@Path("id") deviceId: String): Deferred<ResponseBody>
 }
 
 object DeviceApi {

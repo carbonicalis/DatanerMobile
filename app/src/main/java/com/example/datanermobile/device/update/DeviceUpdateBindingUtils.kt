@@ -1,6 +1,5 @@
-package com.example.datanermobile.device
+package com.example.datanermobile.device.update
 
-import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.datanermobile.device.network.AllWorkplaceDevices
@@ -19,9 +18,16 @@ fun TextView.deviceName(item: AllWorkplaceDevices?) {
     }
 }
 
-@BindingAdapter("deviceState")
-fun Switch.deviceState(item: AllWorkplaceDevices?) {
+@BindingAdapter("deviceType")
+fun TextView.deviceType(item: AllWorkplaceDevices?) {
     item?.let {
-        isChecked = it.deviceState
+        text = item.deviceType
+    }
+}
+
+@BindingAdapter("deviceWorkplace")
+fun TextView.deviceWorkplace(item: AllWorkplaceDevices?) {
+    item?.let {
+        text = item.workplaceId.toString()
     }
 }
