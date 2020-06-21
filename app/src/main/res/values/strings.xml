@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">DatanerMobile</string>
+    <string name="add_building_text">Adicionar Filial</string>
+    <string name="add_user_building_text">Adicionar \n Usuário à Filial</string>
+    <string name="details">Detalhes</string>
+
+    <string name="building_name">Nome do Prédio</string>
+    <string name="building_zip_code">CEP</string>
+    <string name="building_country">País</string>
+    <string name="building_state">Estado</string>
+    <string name="building_city">Cidade</string>
+    <string name="building_address_type">Logradouro</string>
+    <string name="building_address">Endereço</string>
+    <string name="building_address_number">Número</string>
+    <string name="building_company">Companhia</string>
+    <string name="building_update">Concluir</string>
+    <string name="building_cancel">Cancelar</string>
+    <string name="building_create">Adicionar Filial</string>
+    <string name="tv_new_building_label">Adicione uma filial</string>
+    <string name="tv_update_building_label">Editar</string>
+
+    <string name="add_device">Adicionar Device</string>
+    <string name="tv_new_device_label">Adicione um dispositivo</string>
+    <string name="device_create">Adicionar dispositivo</string>
+    <string name="device_id">ID do dispositivo</string>
+    <string name="device_description">Descrição do dispositivo</string>
+    <string name="device_type">Tipo</string>
+    <string name="device_workplace">ID do Ambiente</string>
+    <string name="tv_update_device_label">Atualize o dispositivo</string>
+    <string name="device_update">Atualizar dispositivo</string>
+
 </resources>
