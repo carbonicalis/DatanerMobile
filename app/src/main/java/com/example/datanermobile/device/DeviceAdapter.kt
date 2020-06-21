@@ -11,7 +11,7 @@ import com.example.datanermobile.device.network.AllWorkplaceDevices
 class DeviceAdapter(
     private val clickListener: DeviceListener,
     private val deviceStateClickListener: DeviceStateListener
-) : ListAdapter<AllWorkplaceDevices, DeviceAdapter.ViewHolder>(BuildingDiffCallback()) {
+) : ListAdapter<AllWorkplaceDevices, DeviceAdapter.ViewHolder>(DeviceDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
@@ -48,7 +48,7 @@ class DeviceAdapter(
     }
 }
 
-class BuildingDiffCallback : DiffUtil.ItemCallback<AllWorkplaceDevices>() {
+class DeviceDiffCallback : DiffUtil.ItemCallback<AllWorkplaceDevices>() {
 
     override fun areItemsTheSame(
         oldItem: AllWorkplaceDevices,
