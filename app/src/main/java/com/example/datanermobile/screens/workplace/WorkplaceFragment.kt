@@ -41,6 +41,8 @@ class WorkplaceFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+
+        //NEW FLOOR
         workplaceViewModel.showNewFloorDialog.observe(this, Observer {
             if (it == true) {
                 val builder = AlertDialog.Builder(this.context)
@@ -52,7 +54,8 @@ class WorkplaceFragment : Fragment() {
                     setTitle(R.string.dialog_new_floor_title)
                     setView(dialogLayout)
                     setPositiveButton(R.string.add_floor) { dialogInterface, which ->
-                        workplaceViewModel.newFloor(1, floorNumber.text.toString())
+                        //TODO PEGAR BUILDING ID DO BUNDLE
+                        workplaceViewModel.newFloor(1, floorNumber.text.toString().toInt())
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
                     }
@@ -84,6 +87,7 @@ class WorkplaceFragment : Fragment() {
             }
         })
 
+        //NEW WORKPLACE
         workplaceViewModel.showNewWorkplaceDialog.observe(this, Observer {
             if (it == true) {
 
@@ -99,10 +103,11 @@ class WorkplaceFragment : Fragment() {
                     setTitle(getString(R.string.dialog_new_workplace_title))
                     setView(dialogLayout)
                     setPositiveButton(R.string.add_workplace) { dialogInterface, i ->
+                        //TODO PEGAR BUILDING ID DO BUNDLE
                         workplaceViewModel.newWorkplace(
                             1,
-                            workplaceFloorNumber.text.toString().toInt(),
-                            workplaceName.text.toString()
+                            workplaceName.text.toString(),
+                            1
                         )
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
@@ -122,7 +127,7 @@ class WorkplaceFragment : Fragment() {
 
         })
 
-
+        //UPDATE Workplace
         val adapter =
             WorkplaceAdapter(WorkplaceListener { workplaceId, floorNumber, workplaceDescription ->
                 val builder = AlertDialog.Builder(this.context)
@@ -139,7 +144,7 @@ class WorkplaceFragment : Fragment() {
                     setTitle(getString(R.string.dialog_update_workplace_title))
                     setView(dialogLayout)
                     setPositiveButton(R.string.confirm_update_workplace) { dialogInterface, i ->
-
+                        //TODO PEGAR BUILDING ID DO BUNDLE
                         workplaceViewModel.updateWorkplace(
                             1,
                             workplaceId,
@@ -171,7 +176,9 @@ class WorkplaceFragment : Fragment() {
             }
         })
 
-        workplaceViewModel.getWorkplaces()
+        //TODO PEGAR BUILDING ID DO BUNDLE
+        workplaceViewModel.getWorkplaces(1)
+        workplaceViewModel.getFloors(1)
 
         return binding.root
     }

@@ -1,8 +1,6 @@
 package com.example.datanermobile.screens.workplace.network
 
-
-data class Floor(
+data class FloorRequest(
     val buildingId: Int,
-    val floorId: Int,
-    val floorNumber: String
+    val floorNumber: Int
 )

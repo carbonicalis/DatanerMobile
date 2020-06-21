@@ -4,24 +4,28 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.datanermobile.screens.workplace.network.Floor
-import com.example.datanermobile.screens.workplace.network.Workplace
+import com.example.datanermobile.screens.workplace.network.*
 import kotlinx.coroutines.*
+import retrofit2.http.PUT
+import kotlin.math.floor
 
 class WorkplaceViewModel(
 
     application: Application
 ) : AndroidViewModel(application) {
 
-    val _workplaces = MutableLiveData<List<Workplace>>()
+    private val _workplaces = MutableLiveData<List<Workplace>>()
     val workplaces: LiveData<List<Workplace>>
         get() = _workplaces
+
+    private var _floors = MutableLiveData<List<Floor>>()
+    val floors: LiveData<List<Floor>>
+        get() = _floors
 
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var floors = mutableListOf<Floor>()
 
     private val _showNewFloorDialog = MutableLiveData<Boolean>()
     val showNewFloorDialog: LiveData<Boolean>
@@ -60,21 +64,33 @@ class WorkplaceViewModel(
     }
 
 
-    fun newFloor(buildingId: Int, floorNumber: String) {
+    fun newFloor(buildingId: Int, floorNumber: Int) {
+        uiScope.launch {
 
-        val floor = Floor(buildingId, floorNumber)
-        if (floors.contains(floor)) {
-            _showSnackbarEvent.value = true
-        } else {
-            floors.add(floor)
+            postFloor(buildingId, floorNumber)
         }
+        getFloors(buildingId)
     }
 
-    fun newWorkplace(buildingId: Int, floorNumber: Int, workplaceName: String) {
+    fun getFloorId(floorNumber: Int): Int {
+        val floors = _floors.value
+        var floorId:Int = 0
+
+        floors?.forEach {
+            if(it.floorNumber.equals(floorNumber)){
+                floorId = it.floorId
+            }
+        }
+       return floorId
+    }
+
+    fun newWorkplace(floorNumber: Int, workplaceName: String, buildingId: Int) {
+
+        val floorId = getFloorId(floorNumber)
         uiScope.launch {
             val workplace =
-                Workplace(0, buildingId, floorNumber, floorNumber.toInt(), workplaceName, "0/0")
-            postWorkplace(workplace)
+                WorkplaceRequest(floorId, workplaceName)
+            postWorkplace(workplace, buildingId)
         }
 
     }
@@ -99,27 +115,65 @@ class WorkplaceViewModel(
         }
     }
 
-    private suspend fun postWorkplace(workplace: Workplace) {
+    private suspend fun postFloor(buildingId: Int, floorNumber: Int) {
         withContext(Dispatchers.IO) {
-//            TODO CHAMAR POST
+            val propertiesDeferred =
+                FloorApi.retrofitService.createFloorAsync(FloorRequest(buildingId, floorNumber))
+            propertiesDeferred.await()
+
+            getFloors(buildingId)
+
+        }
+    }
+
+    private suspend fun postWorkplace(workplaceRequest: WorkplaceRequest, buildingId: Int) {
+        withContext(Dispatchers.IO) {
+            val propertiesDeferred =
+                WorkplaceApi.retrofitService.createWorkplaceAsync(workplaceRequest)
+            propertiesDeferred.await()
+            getWorkplaces(buildingId)
 
         }
     }
 
     private suspend fun putWorkplace(workplace: Workplace) {
         withContext(Dispatchers.IO) {
-//          TODO CHAMAR PUT
+            val propertiesDeferred =
+                WorkplaceApi.retrofitService.updateWorkplaceAsync(workplace)
+            propertiesDeferred.await()
+            getWorkplaces(workplace.buildingId)
 
         }
     }
 
-     fun getWorkplaces(){
-         //          TODO CHAMAR GET
+    fun getWorkplaces(buildingId: Int) {
 
-         _workplaces.value = listOf<Workplace>(
-            Workplace(1,1,1,1,"TESTE","01/20"),
-            Workplace(2,2,2,2,"TESTE 2","01/20")
-        )
+        uiScope.launch {
+            val propertiesDeferred = FloorApi.retrofitService.getWorkplacesAsync(buildingId)
+
+            val listResult = propertiesDeferred.await()
+            _workplaces.value = listResult
+
+//         _workplaces.value = listOf<Workplace>(
+//            Workplace(1,1,1,1,"TESTE","01/20"),
+//            Workplace(2,2,2,2,"TESTE 2","01/20")
+//        )
+        }
+    }
+
+    fun getFloors(buildingId: Int) {
+
+        uiScope.launch {
+            val propertiesDeferred = FloorApi.retrofitService.getFloorsAsync(buildingId)
+
+            val listResult = propertiesDeferred.await()
+            _floors.value = listResult
+
+//         _workplaces.value = listOf<Workplace>(
+//            Workplace(1,1,1,1,"TESTE","01/20"),
+//            Workplace(2,2,2,2,"TESTE 2","01/20")
+//        )
+        }
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.datanermobile.screens.workplace.network
 
+import android.os.Parcelable
 
 
 data class Workplace(
@@ -16,3 +17,5 @@ data class Workplace(
 
     val deviceState: String
 )
+
+
