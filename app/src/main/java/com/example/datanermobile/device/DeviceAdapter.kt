@@ -9,12 +9,13 @@ import com.example.datanermobile.databinding.ListItemDeviceBinding
 import com.example.datanermobile.device.network.AllWorkplaceDevices
 
 class DeviceAdapter(
-    private val clickListener: DeviceListener
+    private val clickListener: DeviceListener,
+    private val deviceStateClickListener: DeviceStateListener
 ) : ListAdapter<AllWorkplaceDevices, DeviceAdapter.ViewHolder>(BuildingDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, clickListener)
+        holder.bind(item, clickListener, deviceStateClickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,10 +28,12 @@ class DeviceAdapter(
 
         fun bind(
             item: AllWorkplaceDevices,
-            clickListener: DeviceListener
+            clickListener: DeviceListener,
+            deviceStateClickListener: DeviceStateListener
         ) {
             binding.device = item
             binding.clickListener = clickListener
+            binding.deviceStateClickListener = deviceStateClickListener
             binding.executePendingBindings()
         }
 
@@ -47,11 +50,17 @@ class DeviceAdapter(
 
 class BuildingDiffCallback : DiffUtil.ItemCallback<AllWorkplaceDevices>() {
 
-    override fun areItemsTheSame(oldItem: AllWorkplaceDevices, newItem: AllWorkplaceDevices): Boolean {
+    override fun areItemsTheSame(
+        oldItem: AllWorkplaceDevices,
+        newItem: AllWorkplaceDevices
+    ): Boolean {
         return oldItem.deviceId == newItem.deviceId
     }
 
-    override fun areContentsTheSame(oldItem: AllWorkplaceDevices, newItem: AllWorkplaceDevices): Boolean {
+    override fun areContentsTheSame(
+        oldItem: AllWorkplaceDevices,
+        newItem: AllWorkplaceDevices
+    ): Boolean {
         return oldItem == newItem
     }
 
@@ -61,4 +70,11 @@ class DeviceListener(
     val clickListener: (device: AllWorkplaceDevices) -> Unit
 ) {
     fun onClick(device: AllWorkplaceDevices) = clickListener(device)
+}
+
+class DeviceStateListener(
+    val deviceStateClickListener: (deviceId: String, deviceState: Boolean) -> Unit
+) {
+    fun onClick(device: AllWorkplaceDevices) =
+        deviceStateClickListener(device.deviceId, device.deviceState)
 }

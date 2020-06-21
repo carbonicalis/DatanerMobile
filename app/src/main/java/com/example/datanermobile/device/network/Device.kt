@@ -49,6 +49,11 @@ data class DeviceUpdate(
     val workplaceId: Int
 )
 
+data class DeviceStateUpdateRequestDto(
+    val deviceId: String,
+    val deviceState: Boolean
+)
+
 private const val DEVICE_BASE_URL = "http://10.0.0.106:7001/"
 
 private val retrofit = Retrofit.Builder()
@@ -74,6 +79,10 @@ interface DeviceApiService {
 //    @DELETE("device/{id}")
     @DELETE("{id}")
     fun deleteDeviceAsync(@Path("id") deviceId: String): Deferred<ResponseBody>
+
+    //    @PUT("device/state")
+    @PUT("state/.")
+    fun updateDeviceStateAsync(@Body deviceState: DeviceStateUpdateRequestDto): Deferred<ResponseBody>
 }
 
 object DeviceApi {

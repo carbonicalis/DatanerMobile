@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.DeviceFragmentBinding
+import kotlinx.android.synthetic.main.list_item_device.switch_state
 
 class DeviceFragment : Fragment() {
 
@@ -42,13 +43,17 @@ class DeviceFragment : Fragment() {
         binding.deviceViewModel = deviceViewModel
         binding.lifecycleOwner = this
 
-        val adapter = DeviceAdapter(DeviceListener { device ->
-            Toast.makeText(application, "cliquei no ${device.deviceId}", Toast.LENGTH_LONG).show()
-            findNavController().navigate(
-                DeviceFragmentDirections
-                    .actionDeviceFragmentToDeviceUpdateFragment(device)
-            )
-        })
+        val adapter = DeviceAdapter(
+            DeviceListener { device ->
+
+                findNavController().navigate(
+                    DeviceFragmentDirections
+                        .actionDeviceFragmentToDeviceUpdateFragment(device)
+                )
+            }, DeviceStateListener { deviceId, deviceState ->
+                
+                deviceViewModel.updateDeviceUpdate(deviceId, deviceState.not())
+            })
 
         binding.btNewDevice.setOnClickListener {
             findNavController().navigate(

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.datanermobile.device.network.AllWorkplaceDevices
 import com.example.datanermobile.device.network.DeviceApi
+import com.example.datanermobile.device.network.DeviceStateUpdateRequestDto
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -35,6 +36,23 @@ class DeviceViewModel(
                 _devices.value = propertiesDeferred.await()
             } catch (e: Exception) {
                 _devices.value = ArrayList()
+                throw e
+            }
+        }
+    }
+
+    fun updateDeviceUpdate(deviceId: String, deviceState: Boolean) {
+        uiScope.launch {
+            val propertiesDeferred =
+                DeviceApi.retrofitService.updateDeviceStateAsync(DeviceStateUpdateRequestDto(
+                    deviceId,
+                    deviceState
+                ))
+
+            try {
+                propertiesDeferred.await()
+                getDevices(1)
+            } catch (e: Exception) {
                 throw e
             }
         }
