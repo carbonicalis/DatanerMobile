@@ -9,5 +9,19 @@
         android:id="@+id/deviceFragment"
         android:name="com.example.datanermobile.device.DeviceFragment"
         android:label="DeviceFragment"
-        tools:layout="@layout/device_fragment"/>
+        tools:layout="@layout/device_fragment">
+        <action
+            android:id="@+id/action_deviceFragment_to_deviceCreateFragment"
+            app:destination="@id/deviceCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceCreateFragment"
+        android:name="com.example.datanermobile.device.create.DeviceCreateFragment"
+        android:label="DeviceCreateFragment" >
+        <action
+            android:id="@+id/action_deviceCreateFragment_to_deviceFragment"
+            app:destination="@id/deviceFragment"
+            app:popUpTo="@id/deviceFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

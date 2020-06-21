@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.DeviceFragmentBinding
@@ -44,6 +45,13 @@ class DeviceFragment : Fragment() {
         val adapter = DeviceAdapter(DeviceListener { devices ->
             Toast.makeText(application, "cliquei no ${devices.deviceId}", Toast.LENGTH_LONG).show()
         })
+
+        binding.btNewDevice.setOnClickListener {
+            findNavController().navigate(
+                DeviceFragmentDirections
+                    .actionDeviceFragmentToDeviceCreateFragment()
+            )
+        }
 
         binding.deviceList.adapter = adapter
 

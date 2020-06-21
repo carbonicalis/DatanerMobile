@@ -20,4 +20,11 @@
     <string name="tv_update_building_label">Editar</string>
 
     <string name="add_device">Adicionar Device</string>
+    <string name="tv_new_device_label">Adicione um dispositivo</string>
+    <string name="device_create">Adicionar dispositivo</string>
+    <string name="device_id">ID do dispositivo</string>
+    <string name="device_description">Descrição do dispositivo</string>
+    <string name="device_type">Tipo</string>
+    <string name="device_workplace">ID do Ambiente</string>
+
 </resources>
