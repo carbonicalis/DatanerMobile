@@ -105,7 +105,7 @@ class WorkplaceFragment : Fragment() {
                     setPositiveButton(R.string.add_workplace) { dialogInterface, i ->
                         //TODO PEGAR BUILDING ID DO BUNDLE
                         workplaceViewModel.newWorkplace(
-                            1,
+                            workplaceFloorNumber.text.toString().toInt(),
                             workplaceName.text.toString(),
                             1
                         )
@@ -129,7 +129,7 @@ class WorkplaceFragment : Fragment() {
 
         //UPDATE Workplace
         val adapter =
-            WorkplaceAdapter(WorkplaceListener { workplaceId, floorNumber, workplaceDescription ->
+            WorkplaceAdapter(WorkplaceListener { workplaceId, floorNumber, workplaceDescription, floorId ->
                 val builder = AlertDialog.Builder(this.context)
                 val inflater = layoutInflater
                 val dialogLayout = inflater.inflate(R.layout.alert_dialog_edit_workplace, null)
@@ -149,7 +149,8 @@ class WorkplaceFragment : Fragment() {
                             1,
                             workplaceId,
                             workplaceName.text.toString(),
-                            workplaceFloorNumber.text.toString().toInt()
+                            workplaceFloorNumber.text.toString().toInt(),
+                            floorId
                         )
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->

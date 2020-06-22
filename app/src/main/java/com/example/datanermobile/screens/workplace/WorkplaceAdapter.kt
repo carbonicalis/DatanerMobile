@@ -57,6 +57,9 @@ class WorkplaceDiffCallback : DiffUtil.ItemCallback<Workplace>() {
     }
 }
 
-class WorkplaceListener(val clickListner: (workplaceId: Int, workplaceNumber: Int,workplaceName: String ) -> Unit) {
-    fun onClickUpdate(workplace: Workplace) = clickListner(workplace.workplaceId, workplace.number, workplace.description)
+class WorkplaceListener(
+    val clickListner: (workplaceId: Int, workplaceNumber: Int, workplaceName: String, floorId: Int) -> Unit
+) {
+    fun onClickUpdate(workplace: Workplace) =
+        clickListner(workplace.workplaceId, workplace.number, workplace.description, workplace.floorId)
 }

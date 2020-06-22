@@ -1,5 +1,6 @@
 package com.example.datanermobile.screens.workplace
 
+import android.annotation.SuppressLint
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.datanermobile.screens.workplace.network.Workplace
@@ -18,9 +19,10 @@ fun TextView.description(item: Workplace?) {
     }
 }
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("deviceState")
 fun TextView.deviceState(item: Workplace?) {
     item?.let {
-        text = item.deviceState
+        text = "${item.deviceState?.devicesOn}/${item.deviceState?.allDevices}"
     }
 }

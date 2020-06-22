@@ -77,8 +77,9 @@ class WorkplaceViewModel(
         var floorId:Int = 0
 
         floors?.forEach {
-            if(it.floorNumber.equals(floorNumber)){
+            if(it.number == floorNumber){
                 floorId = it.floorId
+                return floorId
             }
         }
        return floorId
@@ -99,19 +100,17 @@ class WorkplaceViewModel(
         buildingId: Int,
         workplaceId: Int,
         workplaceName: String,
-        floorNumber: Int
+        floorNumber: Int,
+        floorId: Int
     ) {
         uiScope.launch {
-            val workplace =
-                Workplace(
-                    workplaceId,
-                    buildingId,
-                    floorNumber,
-                    floorNumber,
-                    workplaceName,
-                    "0/0"
-                )
-            putWorkplace(workplace)
+            val workplace = WorkplaceUpdate(
+                floorId,
+                workplaceName,
+                workplaceId
+            )
+
+            putWorkplace(workplace, buildingId)
         }
     }
 
@@ -119,7 +118,12 @@ class WorkplaceViewModel(
         withContext(Dispatchers.IO) {
             val propertiesDeferred =
                 FloorApi.retrofitService.createFloorAsync(FloorRequest(buildingId, floorNumber))
-            propertiesDeferred.await()
+
+            try {
+                propertiesDeferred.await()
+            } catch (e: Exception) {
+                throw e
+            }
 
             getFloors(buildingId)
 
@@ -136,12 +140,18 @@ class WorkplaceViewModel(
         }
     }
 
-    private suspend fun putWorkplace(workplace: Workplace) {
+    private suspend fun putWorkplace(workplace: WorkplaceUpdate, buildingId: Int) {
         withContext(Dispatchers.IO) {
             val propertiesDeferred =
                 WorkplaceApi.retrofitService.updateWorkplaceAsync(workplace)
-            propertiesDeferred.await()
-            getWorkplaces(workplace.buildingId)
+
+            try {
+                propertiesDeferred.await()
+            } catch (e: Exception) {
+                throw e
+            }
+
+            getWorkplaces(buildingId)
 
         }
     }
@@ -167,14 +177,9 @@ class WorkplaceViewModel(
             val propertiesDeferred = FloorApi.retrofitService.getFloorsAsync(buildingId)
 
             val listResult = propertiesDeferred.await()
+            println(listResult)
             _floors.value = listResult
-
-//         _workplaces.value = listOf<Workplace>(
-//            Workplace(1,1,1,1,"TESTE","01/20"),
-//            Workplace(2,2,2,2,"TESTE 2","01/20")
-//        )
         }
     }
-
 
 }
