@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment2">
 
-    <item>
-        <shape android:shape=''>
-            <stroke>
-
-            </stroke>
-        </shape>
-    </item>
-
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
