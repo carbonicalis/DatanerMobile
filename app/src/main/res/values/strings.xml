@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DatanerMobile</string>
+    <string name="app_name">Dataner</string>
     <string name="add_building_text">Adicionar Filial</string>
     <string name="add_user_building_text">Adicionar \n Usuário à Filial</string>
     <string name="details">Detalhes</string>
@@ -44,4 +44,13 @@
     <string name="dialog_new_workplace_msg">Defina o andar e nome do Ambiente</string>
     <string name="existing_floor_alert">"Operação cancelada, Andar já cadastrado"</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="account_name">Dataner</string>    <string name="password">Password</string>
+    <string name="password_hint">********</string>
+    <string name="forgot_your_login_info">Forgot your login info?</string>
+    <string name="remember_my_password">Remember My Password</string>
+    <string name="username">Username</string>
+    <string name="signIn">Sign In</string>
+
+
 </resources>
