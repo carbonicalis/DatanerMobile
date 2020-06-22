@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment2">
+    tools:context=".insights.Fragment2">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:textAlignment="center"
-        android:outlineAmbientShadowColor="@color/colorPrimary"
-        android:cacheColorHint="@color/colorPrimaryDark"
+        android:outlineAmbientShadowColor="@color/colorDatanerAzul"
+        android:cacheColorHint="@color/colorDatanerBlack"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

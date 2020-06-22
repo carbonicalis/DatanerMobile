@@ -15,7 +15,12 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#03A9F4</color>
     <color name="colorAccent">#090808</color>
+
     <color name="colorBackground">#010930</color>
+    <color name="colorDatanerAzul">#3162DE</color>
+    <color name="colorDatanerBlack">#0000</color>
+    <color name="colorDatanerRosa">#D81B60</color>
+   >
 
 <!--    <color name="colorPrimary">#3162DE</color>-->
 <!--    <color name="colorPrimaryDark">#00574B</color>-->
