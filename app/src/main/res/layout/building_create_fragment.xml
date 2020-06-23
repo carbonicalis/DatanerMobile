@@ -159,9 +159,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/dataner_gray"
+            android:background="@drawable/translucent_round_conner_button"
             android:onClick="@{() -> buildingCreateViewModel.onClose()}"
             android:text="@string/building_cancel"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -175,11 +176,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/building_create"
+            android:background="@drawable/custom_button"
+            android:textAllCaps="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/bt_building_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.963"
-            app:layout_constraintStart_toEndOf="@+id/bt_building_cancel"
-            android:background="@drawable/custom_button"/>
+            app:layout_constraintStart_toEndOf="@+id/bt_building_cancel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
