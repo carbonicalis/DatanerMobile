@@ -9,14 +9,16 @@ import com.example.datanermobile.databinding.ListItemWorkplaceBinding
 import com.example.datanermobile.screens.workplace.network.Workplace
 
 
-class WorkplaceAdapter(val clickListener: WorkplaceListener) :
-    ListAdapter<Workplace, WorkplaceAdapter.ViewHolder>(WorkplaceDiffCallback()) {
+class WorkplaceAdapter(
+    val clickListener: WorkplaceListener,
+    private val workplaceDevicesListener: WorkplaceDevicesListener
+) : ListAdapter<Workplace, WorkplaceAdapter.ViewHolder>(WorkplaceDiffCallback()) {
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
 
-        holder.bind(item, clickListener)
+        holder.bind(item, clickListener, workplaceDevicesListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,10 +30,12 @@ class WorkplaceAdapter(val clickListener: WorkplaceListener) :
 
         fun bind(
             item: Workplace,
-            clickListener: WorkplaceListener
+            clickListener: WorkplaceListener,
+            workplaceDevicesListener: WorkplaceDevicesListener
         ) {
             binding.workplace = item
             binding.clickListener = clickListener
+            binding.workplaceDevicesListener = workplaceDevicesListener
             binding.executePendingBindings()
         }
 
@@ -61,5 +65,16 @@ class WorkplaceListener(
     val clickListner: (workplaceId: Int, workplaceNumber: Int, workplaceName: String, floorId: Int) -> Unit
 ) {
     fun onClickUpdate(workplace: Workplace) =
-        clickListner(workplace.workplaceId, workplace.number, workplace.description, workplace.floorId)
+        clickListner(
+            workplace.workplaceId,
+            workplace.number,
+            workplace.description,
+            workplace.floorId
+        )
+}
+
+class WorkplaceDevicesListener(
+    val clickListener: (workplaceId: Int) -> Unit
+) {
+    fun onClick(workplace: Workplace) = clickListener(workplace.workplaceId)
 }

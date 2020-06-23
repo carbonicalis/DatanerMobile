@@ -2,6 +2,7 @@ package com.example.datanermobile.screens.workplace
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.FragmentWorkplaceBinding
+import com.example.datanermobile.device.DeviceActivity
 import com.google.android.material.snackbar.Snackbar
 
 class WorkplaceFragment : Fragment() {
@@ -128,8 +130,8 @@ class WorkplaceFragment : Fragment() {
         })
 
         //UPDATE Workplace
-        val adapter =
-            WorkplaceAdapter(WorkplaceListener { workplaceId, floorNumber, workplaceDescription, floorId ->
+        val adapter = WorkplaceAdapter(
+            WorkplaceListener { workplaceId, floorNumber, workplaceDescription, floorId ->
                 val builder = AlertDialog.Builder(this.context)
                 val inflater = layoutInflater
                 val dialogLayout = inflater.inflate(R.layout.alert_dialog_edit_workplace, null)
@@ -167,6 +169,8 @@ class WorkplaceFragment : Fragment() {
 
                 }
 
+            }, WorkplaceDevicesListener { workplaceId ->
+                startActivity(Intent(application, DeviceActivity::class.java))
             })
         binding.workplaceList.adapter = adapter
 
