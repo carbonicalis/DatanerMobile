@@ -22,7 +22,9 @@
             android:layout_marginTop="@dimen/default_margin"
             android:text="@string/add_building_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/custom_button"
+            />
 
         <Button
             android:id="@+id/bt_new_user_building"
@@ -32,9 +34,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/bt_new_building"
-            app:layout_constraintTop_toTopOf="@+id/bt_new_building" />
+            app:layout_constraintTop_toTopOf="@+id/bt_new_building"
+            android:background="@drawable/custom_button"/>
 
         <androidx.recyclerview.widget.RecyclerView
+
             android:id="@+id/building_list"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -44,6 +48,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_new_building" />
+            app:layout_constraintTop_toBottomOf="@id/bt_new_building"
+            android:layout_marginTop="16dp"
+            tools:listitem="@layout/list_item_building"
+            tools:itemCount="5"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

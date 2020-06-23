@@ -26,9 +26,12 @@
         <item name="android:textColor">@color/dataner_black</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:textStyle">bold</item>
+
     </style>
     <!--    android:padding="@dimen/default_padding"-->
-
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
     <!-- Basic styling for building item -->
     <style name="BuildingItems">
         <item name="android:textColor">@color/dataner_black</item>

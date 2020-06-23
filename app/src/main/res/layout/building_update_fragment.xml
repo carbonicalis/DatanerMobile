@@ -303,7 +303,8 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/bt_building_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.963"
-            app:layout_constraintStart_toEndOf="@+id/bt_building_cancel" />
+            app:layout_constraintStart_toEndOf="@+id/bt_building_cancel"
+            android:background="@drawable/custom_button"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

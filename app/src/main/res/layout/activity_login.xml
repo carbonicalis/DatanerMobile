@@ -63,13 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnEnviar"
-            android:background="@drawable/login_button_bg"
             android:text="@string/signIn"
             android:textColor="@color/colorAccent"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
             android:onClick="enviar"
+            android:background="@drawable/custom_button"
             />
 
         <TextView
