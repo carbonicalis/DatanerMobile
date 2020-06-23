@@ -16,6 +16,10 @@
         <variable
             name="clickListener"
             type="com.example.datanermobile.building.BuildingListener" />
+
+        <variable
+            name="buildingDetailsClickListener"
+            type="com.example.datanermobile.building.BuildingDetailsListener" />
     </data>
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
@@ -103,6 +107,7 @@
             android:layout_marginEnd="@dimen/default_margin"
             android:padding="@dimen/default_padding_minor"
             android:text="@string/details"
+            android:onClick="@{() -> buildingDetailsClickListener.onClick(buildingRetrofit)}"
             android:background="@drawable/custom_button"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"

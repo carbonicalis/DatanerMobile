@@ -9,13 +9,14 @@ import com.example.datanermobile.building.network.BuildingRetrofit
 import com.example.datanermobile.databinding.ListItemBuildingBinding
 
 class BuildingAdapter(
-    private val clickListener: BuildingListener
+    private val clickListener: BuildingListener,
+    private val buildingDetailsClickListener: BuildingDetailsListener
 //) : ListAdapter<Building, BuildingAdapter.ViewHolder>(BuildingDiffCallback()) {
 ) : ListAdapter<BuildingRetrofit, BuildingAdapter.ViewHolder>(BuildingDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, clickListener)
+        holder.bind(item, clickListener, buildingDetailsClickListener)
 //        holder.bind(item)
     }
 
@@ -38,10 +39,12 @@ class BuildingAdapter(
 
         fun bind(
             item: BuildingRetrofit,
-            clickListener: BuildingListener
+            clickListener: BuildingListener,
+            buildingDetailsClickListener: BuildingDetailsListener
         ) {
             binding.buildingRetrofit = item
             binding.clickListener = clickListener
+            binding.buildingDetailsClickListener = buildingDetailsClickListener
             binding.executePendingBindings()
         }
 
@@ -92,3 +95,8 @@ class BuildingListener(
     fun onClick(buildingRetrofit: BuildingRetrofit) = clickListener(buildingRetrofit)
 }
 
+class BuildingDetailsListener(
+    val clickListener: (buildingId: Int) -> Unit
+) {
+    fun onClick(buildingRetrofit: BuildingRetrofit) = clickListener(buildingRetrofit.buildingId)
+}

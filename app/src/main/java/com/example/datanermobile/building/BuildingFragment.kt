@@ -1,5 +1,6 @@
 package com.example.datanermobile.building
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.BuildingFragmentBinding
+import com.example.datanermobile.screens.workplace.WorkplaceActivity
 
 class BuildingFragment : Fragment() {
 
@@ -45,13 +47,18 @@ class BuildingFragment : Fragment() {
 //            buildingViewModel.onBuildingUpdateClicked(nightId)
 //        })
 
-        val adapter = BuildingAdapter(BuildingListener { retro ->
-            Toast.makeText(application, "cliquei no ${retro.buildingId}", Toast.LENGTH_LONG).show()
-            findNavController().navigate(
-                BuildingFragmentDirections
-                    .actionBuildingFragmentToBuildingUpdateFragment(retro)
-            )
-        })
+        val adapter = BuildingAdapter(
+            BuildingListener { retro ->
+                Toast.makeText(application, "cliquei no ${retro.buildingId}", Toast.LENGTH_LONG)
+                    .show()
+                findNavController().navigate(
+                    BuildingFragmentDirections
+                        .actionBuildingFragmentToBuildingUpdateFragment(retro)
+                )
+            }, BuildingDetailsListener {buildingId ->
+                startActivity(Intent(application, WorkplaceActivity::class.java))
+            }
+        )
 
         binding.btNewBuilding.setOnClickListener {
             findNavController().navigate(

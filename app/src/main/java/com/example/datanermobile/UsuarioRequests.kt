@@ -7,5 +7,5 @@ interface UsuarioRequests {
 
     @RequestLine("POST /login")
     @Headers("content-type: application/json")
-    fun postUsuario(novoUsuario: Usuario) : Usuario
+    fun postUsuario(login: Login): Usuario
 }
