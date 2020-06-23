@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.datanermobile.R
 import com.example.datanermobile.building.network.BuildingApi
 import com.example.datanermobile.device.network.DeviceApi
+import com.example.datanermobile.screens.workplace.network.FloorApi
 import kotlinx.android.synthetic.main.insights.txt1
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +20,8 @@ class Insights : AppCompatActivity() {
             setContentView(R.layout.insights)
 
             getStateDevice(1)
+
+
 
         }
     private var jobInsights = Job()
@@ -37,7 +40,7 @@ class Insights : AppCompatActivity() {
 
         }
 
-        fun getBuildings(id: Int){
+        fun getIsinghtsBuildings(id: Int){
             uiScope.launch{
                 val propertiesBuilding = BuildingApi.retrofitService.getBuildingAsync(id)
 
@@ -48,9 +51,19 @@ class Insights : AppCompatActivity() {
                 }
             }
         }
+
+        fun getWorkplacesInsights(buildingId: Int){
+            uiScope.launch {
+                val propertiesWorkplaceInsights = FloorApi.retrofitService.getWorkplacesAsync(buildingId)
+
+                try {
+                    val insightsWorkplace = propertiesWorkplaceInsights.await()
+                } catch (e: Exception){
+                    throw e
+                }
+            }
+        }
     }
-
-
 
 
         fun mostrarFrag1(v: View){
