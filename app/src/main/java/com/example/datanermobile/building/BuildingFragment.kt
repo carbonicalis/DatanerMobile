@@ -1,10 +1,11 @@
 package com.example.datanermobile.building
 
+import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.BuildingFragmentBinding
+import com.example.datanermobile.screens.workplace.WorkplaceActivity
 
 class BuildingFragment : Fragment() {
 
@@ -45,13 +47,16 @@ class BuildingFragment : Fragment() {
 //            buildingViewModel.onBuildingUpdateClicked(nightId)
 //        })
 
-        val adapter = BuildingAdapter(BuildingListener { retro ->
-            Toast.makeText(application, "cliquei no ${retro.buildingId}", Toast.LENGTH_LONG).show()
-            findNavController().navigate(
-                BuildingFragmentDirections
-                    .actionBuildingFragmentToBuildingUpdateFragment(retro)
-            )
-        })
+        val adapter = BuildingAdapter(
+            BuildingListener { retro ->
+                findNavController().navigate(
+                    BuildingFragmentDirections
+                        .actionBuildingFragmentToBuildingUpdateFragment(retro)
+                )
+            }, BuildingDetailsListener {buildingId ->
+                workplaceIntent(buildingId, application)
+            }
+        )
 
         binding.btNewBuilding.setOnClickListener {
             findNavController().navigate(
@@ -81,5 +86,13 @@ class BuildingFragment : Fragment() {
         println("VOLTEI NO RESUME")
         buildingViewModel.getBuildings(1)
         super.onResume()
+    }
+
+    private fun workplaceIntent(buildingId: Int, application: Application) {
+        val workplaceIntent = Intent(application, WorkplaceActivity::class.java)
+
+        workplaceIntent.putExtra(getString(R.string.buildingId), buildingId)
+
+        startActivity(workplaceIntent)
     }
 }

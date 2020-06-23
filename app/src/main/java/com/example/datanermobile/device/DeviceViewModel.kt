@@ -13,7 +13,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class DeviceViewModel(
-    application: Application
+    application: Application,
+    val workplaceId: Int
 ) : AndroidViewModel(application) {
 
     private var viewModelJob = Job()
@@ -25,7 +26,7 @@ class DeviceViewModel(
         get() = _devices
 
     init {
-        getDevices(1)
+        getDevices(workplaceId)
     }
 
     fun getDevices(workplaceId: Int) {
@@ -51,7 +52,7 @@ class DeviceViewModel(
 
             try {
                 propertiesDeferred.await()
-                getDevices(1)
+                getDevices(workplaceId)
             } catch (e: Exception) {
                 throw e
             }

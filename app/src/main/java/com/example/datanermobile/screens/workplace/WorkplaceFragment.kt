@@ -1,7 +1,9 @@
 package com.example.datanermobile.screens.workplace
 
 import android.app.AlertDialog
+import android.app.Application
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,9 +17,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.FragmentWorkplaceBinding
+import com.example.datanermobile.device.DeviceActivity
 import com.google.android.material.snackbar.Snackbar
 
 class WorkplaceFragment : Fragment() {
+
+    private lateinit var workplaceViewModel: WorkplaceViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +30,8 @@ class WorkplaceFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View? {
+//        val buildingId = requireActivity().intent.extras?.getInt(getString(R.string.buildingId))
+        val buildingId = requireActivity().intent.getIntExtra(getString(R.string.buildingId), 0)
 
         val binding: FragmentWorkplaceBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_workplace, container, false
@@ -34,8 +41,7 @@ class WorkplaceFragment : Fragment() {
 
         val viewModelFactory = WorkplaceViewModelFactory(application)
 
-        val workplaceViewModel =
-            ViewModelProvider(this, viewModelFactory).get(WorkplaceViewModel::class.java)
+        workplaceViewModel = ViewModelProvider(this, viewModelFactory).get(WorkplaceViewModel::class.java)
 
         binding.workplaceViewModel = workplaceViewModel
 
@@ -55,7 +61,7 @@ class WorkplaceFragment : Fragment() {
                     setView(dialogLayout)
                     setPositiveButton(R.string.add_floor) { dialogInterface, which ->
                         //TODO PEGAR BUILDING ID DO BUNDLE
-                        workplaceViewModel.newFloor(1, floorNumber.text.toString().toInt())
+                        workplaceViewModel.newFloor(buildingId, floorNumber.text.toString().toInt())
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
                     }
@@ -107,7 +113,7 @@ class WorkplaceFragment : Fragment() {
                         workplaceViewModel.newWorkplace(
                             workplaceFloorNumber.text.toString().toInt(),
                             workplaceName.text.toString(),
-                            1
+                            buildingId
                         )
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
@@ -128,8 +134,8 @@ class WorkplaceFragment : Fragment() {
         })
 
         //UPDATE Workplace
-        val adapter =
-            WorkplaceAdapter(WorkplaceListener { workplaceId, floorNumber, workplaceDescription, floorId ->
+        val adapter = WorkplaceAdapter(
+            WorkplaceListener { workplaceId, floorNumber, workplaceDescription, floorId ->
                 val builder = AlertDialog.Builder(this.context)
                 val inflater = layoutInflater
                 val dialogLayout = inflater.inflate(R.layout.alert_dialog_edit_workplace, null)
@@ -146,7 +152,7 @@ class WorkplaceFragment : Fragment() {
                     setPositiveButton(R.string.confirm_update_workplace) { dialogInterface, i ->
                         //TODO PEGAR BUILDING ID DO BUNDLE
                         workplaceViewModel.updateWorkplace(
-                            1,
+                            buildingId,
                             workplaceId,
                             workplaceName.text.toString(),
                             workplaceFloorNumber.text.toString().toInt(),
@@ -167,6 +173,8 @@ class WorkplaceFragment : Fragment() {
 
                 }
 
+            }, WorkplaceDevicesListener { workplaceId ->
+                workplaceIntent(workplaceId, application)
             })
         binding.workplaceList.adapter = adapter
 
@@ -178,9 +186,26 @@ class WorkplaceFragment : Fragment() {
         })
 
         //TODO PEGAR BUILDING ID DO BUNDLE
-        workplaceViewModel.getWorkplaces(1)
-        workplaceViewModel.getFloors(1)
+        workplaceViewModel.getWorkplaces(buildingId)
+        workplaceViewModel.getFloors(buildingId)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        val buildingId = requireActivity().intent.getIntExtra(getString(R.string.buildingId), 0)
+
+        workplaceViewModel.getWorkplaces(buildingId)
+        workplaceViewModel.getFloors(buildingId)
+
+        super.onResume()
+    }
+
+    private fun workplaceIntent(workplaceId: Int, application: Application) {
+        val deviceIntent = Intent(application, DeviceActivity::class.java)
+
+        deviceIntent.putExtra(getString(R.string.workplaceId), workplaceId)
+
+        startActivity(deviceIntent)
     }
 }

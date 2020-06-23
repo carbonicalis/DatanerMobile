@@ -12,6 +12,10 @@
             name="clickListener"
             type="com.example.datanermobile.screens.workplace.WorkplaceListener" />
 
+        <variable
+            name="workplaceDevicesListener"
+            type="com.example.datanermobile.screens.workplace.WorkplaceDevicesListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,6 +80,7 @@
             android:text="@string/details"
             android:textColor="@color/white"
             android:textSize="12sp"
+            android:onClick="@{() -> workplaceDevicesListener.onClick(workplace)}"
             app:layout_constraintBottom_toBottomOf="@+id/devicesState_tv"
             app:layout_constraintEnd_toStartOf="@id/edit_img"
             app:layout_constraintHorizontal_bias="0.5"

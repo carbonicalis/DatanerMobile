@@ -51,6 +51,9 @@
     <string name="remember_my_password">Remember My Password</string>
     <string name="username">Username</string>
     <string name="signIn">Sign In</string>
+    <string name="username_key">username</string>
+    <string name="password_key">password</string>
 
-
+    <string name="buildingId">buildingId</string>
+    <string name="workplaceId">workplaceId</string>
 </resources>

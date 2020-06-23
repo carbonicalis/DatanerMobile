@@ -82,16 +82,16 @@
                     android:hint="@string/device_type"
                     android:inputType="text" />
 
-                <EditText
-                    android:id="@+id/et_workplace_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="@dimen/default_margin"
-                    android:layout_marginBottom="@dimen/default_margin"
-                    android:hint="@string/device_workplace"
-                    android:inputType="number" />
+<!--                <EditText-->
+<!--                    android:id="@+id/et_workplace_id"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/device_workplace"-->
+<!--                    android:inputType="number" />-->
             </LinearLayout>
         </ScrollView>
 

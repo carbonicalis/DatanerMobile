@@ -91,7 +91,7 @@ private val retrofit = Retrofit.Builder()
 interface BuildingApiService {
 //    @GET("building/all/{id}")
     @GET("all/{id}")
-    fun getBuildingAsync(@Path("id") id: Int): Deferred<List<BuildingRetrofit>>
+    fun getBuildingAsync(@Path("id") companyId: Int): Deferred<List<BuildingRetrofit>>
 
     @PUT("building/")
 //    @PUT
