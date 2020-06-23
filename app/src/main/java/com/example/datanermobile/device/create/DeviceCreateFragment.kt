@@ -29,6 +29,10 @@ class DeviceCreateFragment : Fragment() {
             false
         )
 
+        val arguments = DeviceCreateFragmentArgs.fromBundle(requireArguments())
+
+        val workplaceId = arguments.workplaceId
+
         val deviceCreateViewModelFactory = DeviceCreateViewModelFactory()
 
         val deviceCreateViewModel = ViewModelProvider(
@@ -45,7 +49,7 @@ class DeviceCreateFragment : Fragment() {
                     deviceId = binding.etDeviceId.text.toString(),
                     deviceDescription = binding.etDeviceDescription.text.toString(),
                     deviceType = binding.etDeviceType.text.toString(),
-                    workplaceId = binding.etWorkplaceId.text.toString().toInt()
+                    workplaceId = workplaceId
                 )
             )
         }

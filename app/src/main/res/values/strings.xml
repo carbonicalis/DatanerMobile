@@ -53,4 +53,5 @@
     <string name="signIn">Sign In</string>
 
     <string name="buildingId">buildingId</string>
+    <string name="workplaceId">workplaceId</string>
 </resources>

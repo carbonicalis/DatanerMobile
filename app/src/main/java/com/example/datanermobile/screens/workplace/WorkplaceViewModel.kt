@@ -10,7 +10,6 @@ import retrofit2.http.PUT
 import kotlin.math.floor
 
 class WorkplaceViewModel(
-
     application: Application
 ) : AndroidViewModel(application) {
 

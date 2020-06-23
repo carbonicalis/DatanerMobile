@@ -1,6 +1,7 @@
 package com.example.datanermobile.screens.workplace
 
 import android.app.AlertDialog
+import android.app.Application
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
@@ -21,6 +22,8 @@ import com.google.android.material.snackbar.Snackbar
 
 class WorkplaceFragment : Fragment() {
 
+    private lateinit var workplaceViewModel: WorkplaceViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,8 +41,7 @@ class WorkplaceFragment : Fragment() {
 
         val viewModelFactory = WorkplaceViewModelFactory(application)
 
-        val workplaceViewModel =
-            ViewModelProvider(this, viewModelFactory).get(WorkplaceViewModel::class.java)
+        workplaceViewModel = ViewModelProvider(this, viewModelFactory).get(WorkplaceViewModel::class.java)
 
         binding.workplaceViewModel = workplaceViewModel
 
@@ -172,7 +174,7 @@ class WorkplaceFragment : Fragment() {
                 }
 
             }, WorkplaceDevicesListener { workplaceId ->
-                startActivity(Intent(application, DeviceActivity::class.java))
+                workplaceIntent(workplaceId, application)
             })
         binding.workplaceList.adapter = adapter
 
@@ -188,5 +190,22 @@ class WorkplaceFragment : Fragment() {
         workplaceViewModel.getFloors(buildingId)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        val buildingId = requireActivity().intent.getIntExtra(getString(R.string.buildingId), 0)
+
+        workplaceViewModel.getWorkplaces(buildingId)
+        workplaceViewModel.getFloors(buildingId)
+
+        super.onResume()
+    }
+
+    private fun workplaceIntent(workplaceId: Int, application: Application) {
+        val deviceIntent = Intent(application, DeviceActivity::class.java)
+
+        deviceIntent.putExtra(getString(R.string.workplaceId), workplaceId)
+
+        startActivity(deviceIntent)
     }
 }

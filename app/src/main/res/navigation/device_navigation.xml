@@ -26,6 +26,9 @@
             app:destination="@id/deviceFragment"
             app:popUpTo="@id/deviceFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="workplaceId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/deviceUpdateFragment"

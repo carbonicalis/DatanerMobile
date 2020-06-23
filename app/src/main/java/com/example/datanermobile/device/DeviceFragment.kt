@@ -24,6 +24,8 @@ class DeviceFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val workplaceId = requireActivity().intent.getIntExtra(getString(R.string.workplaceId), 0)
+
         val binding: DeviceFragmentBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.device_fragment,
@@ -33,7 +35,7 @@ class DeviceFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val deviceFactory = DeviceViewModelFactory(application)
+        val deviceFactory = DeviceViewModelFactory(application, workplaceId)
 
         deviceViewModel = ViewModelProvider(
             this,
@@ -58,7 +60,7 @@ class DeviceFragment : Fragment() {
         binding.btNewDevice.setOnClickListener {
             findNavController().navigate(
                 DeviceFragmentDirections
-                    .actionDeviceFragmentToDeviceCreateFragment()
+                    .actionDeviceFragmentToDeviceCreateFragment(workplaceId)
             )
         }
 
@@ -74,8 +76,9 @@ class DeviceFragment : Fragment() {
     }
 
     override fun onResume() {
-        println("VOLTEI NO RESUME")
-        deviceViewModel.getDevices(1)
+        val workplaceId = requireActivity().intent.getIntExtra(getString(R.string.workplaceId), 0)
+
+        deviceViewModel.getDevices(workplaceId)
         super.onResume()
     }
 
