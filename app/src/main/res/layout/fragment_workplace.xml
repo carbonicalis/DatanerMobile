@@ -11,7 +11,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.workplace.WorkplaceFragment">
+        tools:context=".screens.workplace.WorkplaceFragment"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/workplace_list"
@@ -20,6 +23,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/workplace_title_tv"
             app:layout_constraintVertical_bias="1.0"
