@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -50,8 +49,6 @@ class BuildingFragment : Fragment() {
 
         val adapter = BuildingAdapter(
             BuildingListener { retro ->
-                Toast.makeText(application, "cliquei no ${retro.buildingId}", Toast.LENGTH_LONG)
-                    .show()
                 findNavController().navigate(
                     BuildingFragmentDirections
                         .actionBuildingFragmentToBuildingUpdateFragment(retro)

@@ -23,9 +23,11 @@ class DeviceCreateViewModel : ViewModel() {
     fun onInsert(device: DeviceCreate) {
         uiScope.launch {
             val propertiesDeferred = DeviceApi.retrofitService.createDeviceAsync(device)
+            val getDevices = DeviceApi.retrofitService.getDeviceAsync(device.workplaceId)
 
             try {
                 propertiesDeferred.await()
+                getDevices.await()
             } catch (e: Exception) {
                 throw e
             }

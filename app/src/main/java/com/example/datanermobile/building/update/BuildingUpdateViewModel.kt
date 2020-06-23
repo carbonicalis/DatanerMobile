@@ -45,9 +45,11 @@ class BuildingUpdateViewModel(
     fun onDelete(id: Int) {
         uiScope.launch {
             val propertiesDeferred = BuildingApi.retrofitService.deleteBuildingAsync(id)
+            val buildings = BuildingApi.retrofitService.getBuildingAsync(1)
 
             try {
                 propertiesDeferred.await()
+                buildings.await()
             } catch (e: Exception) {
                 throw e
             }
