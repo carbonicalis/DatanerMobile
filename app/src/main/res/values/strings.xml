@@ -52,5 +52,5 @@
     <string name="username">Username</string>
     <string name="signIn">Sign In</string>
 
-
+    <string name="buildingId">buildingId</string>
 </resources>

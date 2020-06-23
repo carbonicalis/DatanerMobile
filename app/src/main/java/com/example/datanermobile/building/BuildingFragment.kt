@@ -1,5 +1,6 @@
 package com.example.datanermobile.building
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -56,7 +57,7 @@ class BuildingFragment : Fragment() {
                         .actionBuildingFragmentToBuildingUpdateFragment(retro)
                 )
             }, BuildingDetailsListener {buildingId ->
-                startActivity(Intent(application, WorkplaceActivity::class.java))
+                workplaceIntent(buildingId, application)
             }
         )
 
@@ -88,5 +89,13 @@ class BuildingFragment : Fragment() {
         println("VOLTEI NO RESUME")
         buildingViewModel.getBuildings(1)
         super.onResume()
+    }
+
+    private fun workplaceIntent(buildingId: Int, application: Application) {
+        val workplaceIntent = Intent(application, WorkplaceActivity::class.java)
+
+        workplaceIntent.putExtra(getString(R.string.buildingId), buildingId)
+
+        startActivity(workplaceIntent)
     }
 }

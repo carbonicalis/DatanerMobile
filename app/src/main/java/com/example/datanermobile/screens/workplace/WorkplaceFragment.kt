@@ -27,6 +27,8 @@ class WorkplaceFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View? {
+//        val buildingId = requireActivity().intent.extras?.getInt(getString(R.string.buildingId))
+        val buildingId = requireActivity().intent.getIntExtra(getString(R.string.buildingId), 0)
 
         val binding: FragmentWorkplaceBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_workplace, container, false
@@ -57,7 +59,7 @@ class WorkplaceFragment : Fragment() {
                     setView(dialogLayout)
                     setPositiveButton(R.string.add_floor) { dialogInterface, which ->
                         //TODO PEGAR BUILDING ID DO BUNDLE
-                        workplaceViewModel.newFloor(1, floorNumber.text.toString().toInt())
+                        workplaceViewModel.newFloor(buildingId, floorNumber.text.toString().toInt())
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
                     }
@@ -109,7 +111,7 @@ class WorkplaceFragment : Fragment() {
                         workplaceViewModel.newWorkplace(
                             workplaceFloorNumber.text.toString().toInt(),
                             workplaceName.text.toString(),
-                            1
+                            buildingId
                         )
                     }
                     setNegativeButton(getString(R.string.cancelar)) { dialogInterface, which ->
@@ -148,7 +150,7 @@ class WorkplaceFragment : Fragment() {
                     setPositiveButton(R.string.confirm_update_workplace) { dialogInterface, i ->
                         //TODO PEGAR BUILDING ID DO BUNDLE
                         workplaceViewModel.updateWorkplace(
-                            1,
+                            buildingId,
                             workplaceId,
                             workplaceName.text.toString(),
                             workplaceFloorNumber.text.toString().toInt(),
@@ -182,8 +184,8 @@ class WorkplaceFragment : Fragment() {
         })
 
         //TODO PEGAR BUILDING ID DO BUNDLE
-        workplaceViewModel.getWorkplaces(1)
-        workplaceViewModel.getFloors(1)
+        workplaceViewModel.getWorkplaces(buildingId)
+        workplaceViewModel.getFloors(buildingId)
 
         return binding.root
     }
