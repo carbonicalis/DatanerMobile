@@ -120,6 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/device_create"
+            android:background="@drawable/custom_button"
             app:layout_constraintBaseline_toBaselineOf="@+id/bt_device_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.963"

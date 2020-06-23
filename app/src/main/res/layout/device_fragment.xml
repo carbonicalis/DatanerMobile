@@ -20,6 +20,7 @@
             style="@style/BuildingButtons"
             android:layout_marginTop="16dp"
             android:text="@string/add_device"
+            android:background="@drawable/custom_button"
             app:layout_constraintBottom_toTopOf="@+id/device_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.993"
@@ -37,7 +38,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_new_device" />
+            app:layout_constraintTop_toBottomOf="@id/bt_new_device"
+            tools:listitem="@layout/list_item_device"
+            tools:itemCount="5"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
