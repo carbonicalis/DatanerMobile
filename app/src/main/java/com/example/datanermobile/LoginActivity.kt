@@ -19,8 +19,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         preferencias = getPreferences(Context.MODE_PRIVATE)
 
-        val user = preferencias?.getString("usuário", "")
+        val user = preferencias?.getString(getString(R.string.username_key), "")
+        val pass = preferencias?.getString(getString(R.string.password_key), "")
+
         edUser.setText(user)
+        edPwd.setText(pass)
     }
 
     @SuppressLint("SetTextI18n")
@@ -28,8 +31,8 @@ class LoginActivity : AppCompatActivity() {
         val user = edUser.text.toString()
         val pass: String = edPwd.text.toString()
         val editor = preferencias?.edit()
-        editor?.putString("username", user)
-        editor?.putString("password", pass)
+        editor?.putString(getString(R.string.username_key), user)
+        editor?.putString(getString(R.string.password_key), pass)
         val msgErro = "Não foi possível criar o usuário"
         editor?.apply()
 
@@ -38,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
             tvMessage.text = msgErro
         } else {
             startActivity(Intent(this, BuildingActivity::class.java))
-            tvMessage.text = "${res.token} - ${res.userName}"
+//            tvMessage.text = "${res.token} - ${res.userName}"
         }
     }
 }
