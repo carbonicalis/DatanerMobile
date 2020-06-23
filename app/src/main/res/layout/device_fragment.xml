@@ -18,9 +18,10 @@
         <Button
             android:id="@+id/bt_new_device"
             style="@style/BuildingButtons"
+            android:background="@drawable/custom_button"
             android:layout_marginTop="16dp"
             android:text="@string/add_device"
-            android:background="@drawable/custom_button"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/device_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.993"

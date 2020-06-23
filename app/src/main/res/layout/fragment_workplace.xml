@@ -32,6 +32,7 @@
 
         <Button
             android:id="@+id/add_floor_btn"
+            style="@style/BuildingButtons"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/alturaBtn"
             android:layout_marginStart="@dimen/margin"
@@ -39,6 +40,7 @@
             android:background="@drawable/custom_button"
             android:text="@string/add_floor"
             android:textSize="@dimen/button_font"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toStartOf="@+id/add_workplace_btn"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,12 +49,14 @@
 
         <Button
             android:id="@+id/add_workplace_btn"
+            style="@style/BuildingButtons"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/alturaBtn"
             android:layout_marginEnd="@dimen/margin"
             android:background="@drawable/custom_button"
             android:text="@string/add_workplace"
             android:textSize="@dimen/button_font"
+            android:textAllCaps="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/add_floor_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/add_floor_btn"

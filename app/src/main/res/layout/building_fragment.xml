@@ -16,21 +16,25 @@
         tools:context=".building.BuildingFragment">
 
         <Button
-            android:id="@+id/bt_new_building"
             style="@style/BuildingButtons"
+            android:background="@drawable/custom_button"
+            android:id="@+id/bt_new_building"
             android:layout_marginStart="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
             android:text="@string/add_building_text"
+            android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/custom_button"
             />
 
         <Button
-            android:id="@+id/bt_new_user_building"
             style="@style/BuildingButtons"
+            android:background="@drawable/custom_button"
+            android:id="@+id/bt_new_user_building"
             android:layout_marginEnd="@dimen/default_margin"
             android:text="@string/add_user_building_text"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/bt_new_building"
