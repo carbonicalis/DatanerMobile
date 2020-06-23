@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.datanermobile.R
+import com.example.datanermobile.building.network.BuildingApi
 import com.example.datanermobile.device.network.DeviceApi
 import kotlinx.android.synthetic.main.insights.txt1
 import kotlinx.coroutines.CoroutineScope
@@ -35,7 +36,20 @@ class Insights : AppCompatActivity() {
                 }
 
         }
+
+        fun getBuildings(id: Int){
+            uiScope.launch{
+                val propertiesBuilding = BuildingApi.retrofitService.getBuildingAsync(id)
+
+                try {
+                    val insightsBuilding = propertiesBuilding.await()
+                } catch (e: Exception){
+                    throw e
+                }
+            }
+        }
     }
+
 
 
 
