@@ -17,7 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_text_view">
+        android:background="@drawable/rounded_corner_text_view"
+        android:layout_marginTop="4dp">
 
 
         <TextView
