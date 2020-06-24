@@ -61,6 +61,21 @@
     <string name="devices">Devices Ativos</string>
     <string name="top">Top 5</string>
     <string name="consumos">Maiores consumos de energia</string>
+    <string name="txtPaulista">1- Bandtec Paulista</string>
+    <string name="txtSé">2- Bandtec Sé</string>
+    <string name="txtSantaCruz">3- Bandtec Santa Cruz</string>
+    <string name="txtChacara">4- Bandtec Chacara Santo Antônio</string>
+    <string name="txtBarra">5- Bandtec Barra Funda</string>
+    <string name="txtSala1">1- Sala de aula 01</string>
+    <string name="txtSala2">2- Sala de aula 02</string>
+    <string name="txtSala03">3- Sala de reunião 1º andar</string>
+    <string name="txtSala04">4- Secretaria</string>
+    <string name="txtSala05">5- Sala dos professores</string>
+    <string name="txtDevice1">1- Ar-condionado - R$20/H</string>
+    <string name="txtDevice2">2- Luz - R$18/H</string>
+    <string name="txtDevice3">3- Televisão - R$15/H</string>
+    <string name="txtDevice4">4- Luz - R$13/H</string>
+    <string name="txtDevice5">5- Ar-condicionado - R$10/H</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

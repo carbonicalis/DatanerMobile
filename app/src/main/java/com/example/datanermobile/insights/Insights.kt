@@ -40,29 +40,7 @@ class Insights : AppCompatActivity() {
 
         }
 
-        fun getIsinghtsBuildings(id: Int){
-            uiScope.launch{
-                val propertiesBuilding = BuildingApi.retrofitService.getBuildingAsync(id)
 
-                try {
-                    val insightsBuilding = propertiesBuilding.await()
-                } catch (e: Exception){
-                    throw e
-                }
-            }
-        }
-
-        fun getWorkplacesInsights(buildingId: Int){
-            uiScope.launch {
-                val propertiesWorkplaceInsights = FloorApi.retrofitService.getWorkplacesAsync(buildingId)
-
-                try {
-                    val insightsWorkplace = propertiesWorkplaceInsights.await()
-                } catch (e: Exception){
-                    throw e
-                }
-            }
-        }
     }
 
 
