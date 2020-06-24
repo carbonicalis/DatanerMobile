@@ -10,7 +10,7 @@ object ClienteJson {
         return Feign.builder()
             .decoder(GsonDecoder())
             .encoder(GsonEncoder())
-            .target(UsuarioRequests::class.java, "http://10.0.0.106:7005")
-//            .target(UsuarioRequests::class.java, "https://54.173.83.33:7000")
+            .target(UsuarioRequests::class.java, "http://54.173.83.33/login")
+//            .target(UsuarioRequests::class.java, "http://10.0.0.106:7005")
     }
 }
