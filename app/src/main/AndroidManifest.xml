@@ -18,7 +18,7 @@
         <activity android:name=".screens.workplace.WorkplaceActivity" />
         <activity android:name=".device.DeviceActivity" />
         <activity android:name=".building.BuildingActivity" />
-        <activity android:name=".Splash">
+        <activity android:name=".insights.Consumos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

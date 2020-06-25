@@ -76,6 +76,15 @@
     <string name="txtDevice3">3- Televisão - R$15/H</string>
     <string name="txtDevice4">4- Luz - R$13/H</string>
     <string name="txtDevice5">5- Ar-condicionado - R$10/H</string>
+    <string name="telaConsumo">Consumo</string>
+    <string name="txtBuilding">Bandtec Paulista</string>
+    <string name="buildingConsumo">R$ 300/H</string>
+    <string name="deviceConsumo">Device: Luz</string>
+    <string name="deviceGasto">R$ 60/H</string>
+    <string name="workplaceConsumo">Sala de aula - 1º andar</string>
+    <string name="workplaceGasto">R$ 50/H</string>
+    <string name="Gasto">Previsão de gasto mensal:</string>
+    <string name="gastoMensal">R$ 3.500</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
