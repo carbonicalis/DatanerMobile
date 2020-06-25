@@ -59,7 +59,7 @@
         android:layout_marginTop="80dp"
         android:text="@string/txtBuilding"
         android:textColor="@color/dataner_black"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/image_building"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,7 +94,7 @@
         android:layout_marginTop="200dp"
         android:text="@string/deviceConsumo"
         android:textColor="@color/dataner_black"
-        android:textSize="25sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/device_image"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +129,7 @@
         android:layout_marginTop="310dp"
         android:text="@string/workplaceConsumo"
         android:textColor="@color/dataner_black"
-        android:textSize="25sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/workplace_image"
         app:layout_constraintTop_toTopOf="parent" />
 
