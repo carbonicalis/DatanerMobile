@@ -20,7 +20,7 @@ class Fragment1 : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        paulista.setOnClickListener { startActivity(Intent(application, Consumos::class.java)) }
+//        paulista.setOnClickListener { startActivity(Intent(application, Consumos::class.java)) }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment1, container, false)
 

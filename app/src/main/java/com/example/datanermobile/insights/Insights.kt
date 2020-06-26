@@ -64,4 +64,8 @@ class Insights : AppCompatActivity() {
             ).commit()
         }
 
+    fun spending(v: View) {
+        startActivity(Intent(application, Consumos::class.java))
+    }
+
 }
