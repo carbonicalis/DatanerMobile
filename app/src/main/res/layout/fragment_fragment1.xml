@@ -16,7 +16,6 @@
         android:layout_marginTop="25dp"
         android:gravity="center_vertical"
         android:text="@string/txtPaulista"
-        android:onClick="changeConsumo"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent" />
