@@ -65,11 +65,11 @@ data class BuildingRetrofitPut(
     val companyId: Int
 )
 
-//private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
+private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
 //private const val BUILDING_BASE_URL = "http://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/building/"
-private const val BUILDING_BASE_URL = "http://54.173.83.33/building/"
+//private const val BUILDING_BASE_URL = "http://54.173.83.33/building/"
 
 //private val okHttpClient = OkHttpClient.Builder()
 private val moshi = Moshi.Builder()

@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'adeum'
 
 android {
     compileSdkVersion 29
@@ -112,4 +113,17 @@ dependencies {
     implementation 'io.github.openfeign:feign-core:9.7.0'
     implementation 'io.github.openfeign:feign-gson:9.7.0'
 
+//    implementation "com.appdynamics:appdynamics-gradle-plugin:20.5.2"
+}
+
+adeum { // this section added for AppDynamics
+    account {
+        name '513334-ss-Dataner-uu11mrmm8bgy'
+        licenseKey '22f8b26b-823b-41b2-ba71-223feaae2cf6'
+    }
+
+    proguardMappingFileUpload {
+        failBuildOnUploadFailure true //should build fail if upload fails? Defaults to false.
+        enabled true //enables automatic uploads. Defaults to true.
+    }
 }
