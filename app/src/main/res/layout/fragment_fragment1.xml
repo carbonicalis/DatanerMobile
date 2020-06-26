@@ -5,68 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
+    android:layout_marginTop="200dp"
     tools:context=".insights.Fragment2">
 
     <TextView
         android:id="@+id/paulista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtPaulista"
+        android:onClick="changeConsumo"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
-        android:text="@string/txtPaulista"
-        android:gravity="center_vertical"
-        android:layout_marginStart="60dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sé"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
         android:text="@string/txtSé"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
-        android:gravity="center_vertical"
-        android:layout_marginStart="60dp"
         app:layout_constraintTop_toBottomOf="@+id/paulista" />
 
     <TextView
         android:id="@+id/santa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
         android:text="@string/txtSantaCruz"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
-        android:gravity="center_vertical"
-        android:layout_marginStart="60dp"
         app:layout_constraintTop_toBottomOf="@+id/sé" />
 
     <TextView
         android:id="@+id/chacara"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
         android:text="@string/txtChacara"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
-        android:gravity="center_vertical"
-        android:layout_marginStart="60dp"
         app:layout_constraintTop_toBottomOf="@+id/santa" />
 
     <TextView
         android:id="@+id/barra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
         android:text="@string/txtBarra"
         android:textColor="@color/dataner_black"
         android:textSize="15sp"
-        android:gravity="center_vertical"
-        android:layout_marginStart="60dp"
         app:layout_constraintTop_toBottomOf="@+id/chacara" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

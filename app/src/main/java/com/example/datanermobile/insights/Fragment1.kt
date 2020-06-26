@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.datanermobile.R
 
 
+
 class Fragment1 : Fragment() {
 
     override fun onCreateView(
@@ -17,7 +18,13 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment1, container, false)
+
+
     }
+
+
+
+
 
 
 }

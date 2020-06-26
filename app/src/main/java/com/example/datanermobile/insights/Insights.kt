@@ -1,12 +1,11 @@
 package com.example.datanermobile.insights
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.datanermobile.R
-import com.example.datanermobile.building.network.BuildingApi
 import com.example.datanermobile.device.network.DeviceApi
-import com.example.datanermobile.screens.workplace.network.FloorApi
 import kotlinx.android.synthetic.main.insights.txt1
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -51,16 +50,18 @@ class Insights : AppCompatActivity() {
             ).commit()
         }
 
+
         fun mostrarFrag2(v: View){
             supportFragmentManager.beginTransaction().replace(
                 R.id.frame1,
                 Fragment2()
             ).commit()
         }
-        fun mostrarFrag3(v: View){
+        fun mostrarFrag3(v:View ){
             supportFragmentManager.beginTransaction().replace(
                 R.id.frame1,
                 Fragment3()
             ).commit()
         }
-    }
+
+}
