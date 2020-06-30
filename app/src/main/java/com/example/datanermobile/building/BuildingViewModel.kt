@@ -70,6 +70,9 @@ class BuildingViewModel(
                 println("cheguei no try")
                 val listResult = propertiesDeferred.await()
                 println("listResult is $listResult")
+
+                BuildingApi.sendRequestToAppDynamics(200)
+
                 _buildings.value = listResult
             } catch (e: Exception) {
                 println("direto pro catch")

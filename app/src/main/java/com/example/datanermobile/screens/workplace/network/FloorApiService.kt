@@ -1,5 +1,6 @@
 package com.example.datanermobile.screens.workplace.network
 
+import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -42,5 +43,9 @@ interface FloorApiService {
 object FloorApi {
     val retrofitService: FloorApiService by lazy {
         retrofit.create(FloorApiService::class.java)
+    }
+
+    fun sendRequestToAppDynamics(statusCode: Int) {
+        AppDynamics().sendRequest(statusCode, BASE_URL)
     }
 }

@@ -37,6 +37,8 @@ class LoginActivity : AppCompatActivity() {
         editor?.apply()
 
         val res = criarUserTask().execute(Login(user, pass)).get()
+        ClienteJson.sendRequestToAppDynamics(200)
+
         if (res == null) {
             tvMessage.text = msgErro
         } else {

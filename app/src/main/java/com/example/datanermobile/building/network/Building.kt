@@ -1,6 +1,7 @@
 package com.example.datanermobile.building.network
 
 import android.os.Parcelable
+import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -92,6 +93,7 @@ interface BuildingApiService {
 //    @GET("building/all/{id}")
     @GET("all/{id}")
     fun getBuildingAsync(@Path("id") companyId: Int): Deferred<List<BuildingRetrofit>>
+//    fun getBuildingAsync(@Path("id") companyId: Int): Deferred<ResponseBody>
 
 //    @PUT("building/")
     @PUT(".")
@@ -110,6 +112,10 @@ interface BuildingApiService {
 object BuildingApi {
     val retrofitService: BuildingApiService by lazy {
         retrofit.create(BuildingApiService::class.java)
+    }
+
+    fun sendRequestToAppDynamics(statusCode: Int) {
+        AppDynamics().sendRequest(statusCode, BUILDING_BASE_URL)
     }
 }
 

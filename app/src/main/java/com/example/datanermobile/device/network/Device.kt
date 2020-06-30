@@ -1,6 +1,7 @@
 package com.example.datanermobile.device.network
 
 import android.os.Parcelable
+import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
@@ -98,5 +99,9 @@ interface DeviceApiService {
 object DeviceApi {
     val retrofitService: DeviceApiService by lazy {
         retrofit.create(DeviceApiService::class.java)
+    }
+
+    fun sendRequestToAppDynamics(statusCode: Int) {
+        AppDynamics().sendRequest(statusCode, DEVICE_BASE_URL)
     }
 }

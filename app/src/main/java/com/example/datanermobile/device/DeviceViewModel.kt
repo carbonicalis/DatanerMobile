@@ -34,6 +34,8 @@ class DeviceViewModel(
             val propertiesDeferred = DeviceApi.retrofitService.getDeviceAsync(workplaceId)
 
             try {
+                DeviceApi.sendRequestToAppDynamics(200)
+
                 _devices.value = propertiesDeferred.await()
             } catch (e: Exception) {
                 _devices.value = ArrayList()
@@ -53,6 +55,8 @@ class DeviceViewModel(
             try {
                 propertiesDeferred.await()
                 getDevices(workplaceId)
+
+                DeviceApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }
