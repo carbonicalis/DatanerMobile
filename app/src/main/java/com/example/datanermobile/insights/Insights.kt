@@ -26,9 +26,9 @@ class Insights : AppCompatActivity() {
     private var jobInsights = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + jobInsights)
 
-        fun getStateDevice(buildingId: Int){
+        fun getStateDevice(companyId: Int){
             uiScope.launch{
-                val propertiesInsights = DeviceApi.retrofitService.getDeviceStateAsync(buildingId)
+                val propertiesInsights = DeviceApi.retrofitService.getDeviceStateAsync(companyId)
 
                 try {
                     val insi = propertiesInsights.await()

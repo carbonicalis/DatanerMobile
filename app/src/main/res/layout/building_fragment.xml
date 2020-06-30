@@ -26,12 +26,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+<!--        <Button-->
+<!--            style="@style/BuildingButtons"-->
+<!--            android:background="@drawable/custom_button"-->
+<!--            android:id="@+id/bt_new_user_building"-->
+<!--            android:layout_marginEnd="@dimen/default_margin"-->
+<!--            android:text="@string/add_user_building_text"-->
+<!--            android:textAllCaps="false"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/bt_new_building"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/bt_new_building" />-->
+
         <Button
             style="@style/BuildingButtons"
             android:background="@drawable/custom_button"
-            android:id="@+id/bt_new_user_building"
+            android:id="@+id/bt_insights"
             android:layout_marginEnd="@dimen/default_margin"
-            android:text="@string/add_user_building_text"
+            android:text="@string/insights"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

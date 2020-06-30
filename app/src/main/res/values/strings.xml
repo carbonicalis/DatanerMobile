@@ -2,6 +2,7 @@
     <string name="app_name">Dataner</string>
     <string name="add_building_text">Adicionar Filial</string>
     <string name="add_user_building_text">Adicionar \n Usuário à Filial</string>
+    <string name="insights">Consumos</string>
     <string name="details">Detalhes</string>
 
     <string name="building_name">Nome do Prédio</string>
