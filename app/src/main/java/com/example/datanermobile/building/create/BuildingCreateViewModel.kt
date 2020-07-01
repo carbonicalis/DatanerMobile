@@ -27,6 +27,7 @@ class BuildingCreateViewModel : ViewModel() {
 
             try {
                 propertiesDeferred.await()
+                BuildingApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }

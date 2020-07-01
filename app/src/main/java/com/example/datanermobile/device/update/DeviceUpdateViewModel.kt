@@ -31,6 +31,8 @@ class DeviceUpdateViewModel(
 
             try {
                 propertiesDeferred.await()
+
+                DeviceApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }
@@ -45,6 +47,8 @@ class DeviceUpdateViewModel(
 
             try {
                 propertiesDeferred.await()
+
+                DeviceApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }

@@ -1,6 +1,9 @@
 package com.example.datanermobile.building.network
 
 import android.os.Parcelable
+import com.appdynamics.eumagent.runtime.HttpRequestTracker
+import com.appdynamics.eumagent.runtime.Instrumentation
+import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -17,6 +20,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import java.net.URL
 
 data class Building(
     val buildingId: Int? = null,
@@ -65,11 +69,11 @@ data class BuildingRetrofitPut(
     val companyId: Int
 )
 
-private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
+//private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
 //private const val BUILDING_BASE_URL = "http://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/building/"
-//private const val BUILDING_BASE_URL = "http://52.45.180.127:7002/"
+private const val BUILDING_BASE_URL = "http://54.173.83.33/building/"
 
 //private val okHttpClient = OkHttpClient.Builder()
 private val moshi = Moshi.Builder()
@@ -92,9 +96,10 @@ interface BuildingApiService {
 //    @GET("building/all/{id}")
     @GET("all/{id}")
     fun getBuildingAsync(@Path("id") companyId: Int): Deferred<List<BuildingRetrofit>>
+//    fun getBuildingAsync(@Path("id") companyId: Int): Deferred<ResponseBody>
 
-    @PUT("building/")
-//    @PUT
+//    @PUT("building/")
+    @PUT(".")
 //    fun updateBuilding(@Body building: BuildingRetrofitPut): Deferred<ResponseBody>
     fun updateBuildingAsync(@Body building: Building): Deferred<ResponseBody>
 //    fun updateBuilding(@Body building: RequestBody): Deferred<Any>
@@ -110,6 +115,14 @@ interface BuildingApiService {
 object BuildingApi {
     val retrofitService: BuildingApiService by lazy {
         retrofit.create(BuildingApiService::class.java)
+    }
+
+    fun sendRequestToAppDynamics(statusCode: Int) {
+        val tracker: HttpRequestTracker = Instrumentation.beginHttpRequest(URL(BUILDING_BASE_URL))
+        tracker.withResponseCode(statusCode)
+            .reportDone()
+
+//        AppDynamics().sendRequest(statusCode, BUILDING_BASE_URL)
     }
 }
 

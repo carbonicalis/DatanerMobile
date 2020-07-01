@@ -28,6 +28,8 @@ class DeviceCreateViewModel : ViewModel() {
             try {
                 propertiesDeferred.await()
                 getDevices.await()
+
+                DeviceApi.sendRequestToAppDynamics(201)
             } catch (e: Exception) {
                 throw e
             }

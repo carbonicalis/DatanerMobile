@@ -33,6 +33,7 @@ class BuildingUpdateViewModel(
             try {
                 println("cheguei no try do await")
                 propertiesDeferred.await()
+                BuildingApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 println("direto pro catch")
                 throw e
@@ -50,6 +51,7 @@ class BuildingUpdateViewModel(
             try {
                 propertiesDeferred.await()
                 buildings.await()
+                BuildingApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }

@@ -120,6 +120,8 @@ class WorkplaceViewModel(
 
             try {
                 propertiesDeferred.await()
+
+                FloorApi.sendRequestToAppDynamics(201)
             } catch (e: Exception) {
                 throw e
             }
@@ -135,7 +137,7 @@ class WorkplaceViewModel(
                 WorkplaceApi.retrofitService.createWorkplaceAsync(workplaceRequest)
             propertiesDeferred.await()
             getWorkplaces(buildingId)
-
+            WorkplaceApi.sendRequestToAppDynamics(201)
         }
     }
 
@@ -146,6 +148,8 @@ class WorkplaceViewModel(
 
             try {
                 propertiesDeferred.await()
+
+                WorkplaceApi.sendRequestToAppDynamics(200)
             } catch (e: Exception) {
                 throw e
             }
@@ -161,6 +165,8 @@ class WorkplaceViewModel(
             val propertiesDeferred = FloorApi.retrofitService.getWorkplacesAsync(buildingId)
 
             val listResult = propertiesDeferred.await()
+            WorkplaceApi.sendRequestToAppDynamics(200)
+
             _workplaces.value = listResult
 
 //         _workplaces.value = listOf<Workplace>(
@@ -177,6 +183,8 @@ class WorkplaceViewModel(
 
             val listResult = propertiesDeferred.await()
             println(listResult)
+            FloorApi.sendRequestToAppDynamics(200)
+
             _floors.value = listResult
         }
     }

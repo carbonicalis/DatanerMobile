@@ -1,6 +1,9 @@
 package com.example.datanermobile.device.network
 
 import android.os.Parcelable
+import com.appdynamics.eumagent.runtime.HttpRequestTracker
+import com.appdynamics.eumagent.runtime.Instrumentation
+import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
@@ -15,6 +18,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import java.net.URL
 
 @Parcelize
 data class AllWorkplaceDevices(
@@ -60,7 +64,8 @@ data class TotalDevice(
     val allDevices: Int
 )
 
-private const val DEVICE_BASE_URL = "http://10.0.0.106:7001/"
+//private const val DEVICE_BASE_URL = "http://10.0.0.106:7001/"
+private const val DEVICE_BASE_URL = "http://54.173.83.33/device/"
 
 private val retrofit = Retrofit.Builder()
     .baseUrl(DEVICE_BASE_URL)
@@ -74,7 +79,7 @@ interface DeviceApiService {
     @GET(value = "all/workplace/{id}")
     fun getDeviceAsync(@Path("id") workplaceId: Int): Deferred<List<AllWorkplaceDevices>>
 
-    @GET(value = "/state/company/{id}" )
+    @GET(value = "state/company/{id}" )
     fun getDeviceStateAsync(@Path("id") companyId: Int): Deferred<TotalDevice>
 
 //    @POST("device/")
@@ -90,12 +95,20 @@ interface DeviceApiService {
     fun deleteDeviceAsync(@Path("id") deviceId: String): Deferred<ResponseBody>
 
     //    @PUT("device/state")
-    @PUT("state/.")
+    @PUT("state")
     fun updateDeviceStateAsync(@Body deviceState: DeviceStateUpdateRequestDto): Deferred<ResponseBody>
 }
 
 object DeviceApi {
     val retrofitService: DeviceApiService by lazy {
         retrofit.create(DeviceApiService::class.java)
+    }
+
+    fun sendRequestToAppDynamics(statusCode: Int) {
+        val tracker: HttpRequestTracker = Instrumentation.beginHttpRequest(URL(DEVICE_BASE_URL))
+        tracker.withResponseCode(statusCode)
+            .reportDone()
+
+//        AppDynamics().sendRequest(statusCode, DEVICE_BASE_URL)
     }
 }
