@@ -79,7 +79,7 @@ interface DeviceApiService {
     @GET(value = "all/workplace/{id}")
     fun getDeviceAsync(@Path("id") workplaceId: Int): Deferred<List<AllWorkplaceDevices>>
 
-    @GET(value = "/state/company/{id}" )
+    @GET(value = "state/company/{id}" )
     fun getDeviceStateAsync(@Path("id") companyId: Int): Deferred<TotalDevice>
 
 //    @POST("device/")
