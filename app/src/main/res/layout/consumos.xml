@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDatanerAzul"
+
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-6dp">
+
+    </Toolbar>
+
+
+    <TextView
+        android:id="@+id/toolConsumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="end"
+        android:text="@string/telaConsumo"
+        android:textColor="@color/colorTextTool"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toStartOf="@+id/money_image"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <ImageView
+        android:id="@+id/money_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/money_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/toolConsumo"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintLeft_toRightOf="@+id/toolConsumo"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <ImageView
+        android:id="@+id/image_building"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/building"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/predioConsumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/txtBuilding"
+        android:textColor="@color/dataner_black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/image_building"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/buildingConsumo"
+        android:textColor="@color/lightBlue"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/image_building"
+        app:layout_constraintTop_toBottomOf="@+id/predioConsumo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/device_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="230dp"
+        android:src="@drawable/devicemaior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="240dp"
+        android:text="@string/deviceConsumo"
+        android:textColor="@color/dataner_black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/device_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="320dp"
+        android:text="@string/deviceGasto"
+        android:textColor="@color/dataner_yellow"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDevice"
+        app:layout_constraintStart_toEndOf="@+id/device_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/workplace_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="350dp"
+        android:src="@drawable/ambientepreto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="350dp"
+        android:text="@string/workplaceConsumo"
+        android:textColor="@color/dataner_black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/workplace_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/workplaceGasto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="390dp"
+        android:text="@string/workplaceGasto"
+        android:textColor="@color/dataner_yellow"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/workplace_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/previsaoGasto"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="490dp"
+        android:src="@drawable/money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="490dp"
+        android:text="@string/Gasto"
+        android:textColor="@color/dataner_black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/previsaoGasto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="520dp"
+        android:text="@string/gastoMensal"
+        android:textColor="@color/lightBlue"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/previsaoGasto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

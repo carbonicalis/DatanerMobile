@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="200dp"
+    tools:context=".insights.Fragment3">
+
+
+    <TextView
+        android:id="@+id/device1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtDevice1"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/device2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtDevice2"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/device1" />
+
+    <TextView
+        android:id="@+id/device3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtDevice3"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/device2" />
+
+    <TextView
+        android:id="@+id/device4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtDevice4"
+        android:textColor="@color/dataner_black"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/device3" />
+
+    <TextView
+        android:id="@+id/device5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtDevice5"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/device4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

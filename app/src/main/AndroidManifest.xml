@@ -26,6 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".insights.Consumos" />
+        <activity android:name=".insights.Insights" />
     </application>
 
 </manifest>

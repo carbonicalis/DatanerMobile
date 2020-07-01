@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datanermobile.R
 import com.example.datanermobile.databinding.BuildingFragmentBinding
+import com.example.datanermobile.insights.Insights
 import com.example.datanermobile.screens.workplace.WorkplaceActivity
 
 class BuildingFragment : Fragment() {
@@ -63,6 +64,10 @@ class BuildingFragment : Fragment() {
                 BuildingFragmentDirections
                     .actionBuildingFragmentToBuildingCreateFragment()
             )
+        }
+
+        binding.btInsights.setOnClickListener {
+            startActivity(Intent(application, Insights::class.java))
         }
 
         binding.buildingList.adapter = adapter

@@ -54,6 +54,12 @@ data class DeviceStateUpdateRequestDto(
     val deviceState: Boolean
 )
 
+data class TotalDevice(
+    val devicesOn: Int,
+    val devicesOff: Int,
+    val allDevices: Int
+)
+
 private const val DEVICE_BASE_URL = "http://10.0.0.106:7001/"
 
 private val retrofit = Retrofit.Builder()
@@ -67,6 +73,9 @@ interface DeviceApiService {
 //    @GET("device/all/workplace/{id}")
     @GET(value = "all/workplace/{id}")
     fun getDeviceAsync(@Path("id") workplaceId: Int): Deferred<List<AllWorkplaceDevices>>
+
+    @GET(value = "/state/company/{id}" )
+    fun getDeviceStateAsync(@Path("id") companyId: Int): Deferred<TotalDevice>
 
 //    @POST("device/")
     @POST(".")
