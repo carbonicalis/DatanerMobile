@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="buildingUpdateViewModel"
+            type="com.example.datanermobile.building.update.BuildingUpdateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dataner_gray"
+        tools:context=".building.update.BuildingUpdateFragment">
+
+        <TextView
+            android:id="@+id/tv_update_building_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/tv_update_building_label"
+            android:textColor="@color/dataner_black"
+            android:textSize="@dimen/building_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/iv_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/ic_delete_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_update_building_label" />
+
+        <ScrollView
+            android:id="@+id/sv_building_update"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_building_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_update_building_label">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_building_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/building_name"
+                    android:inputType="text"
+                    app:buildingUpdateName="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_zip_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_zip_code"
+                    android:inputType="text"
+                    app:buildingUpdateZipCode="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_country"
+                    android:inputType="text"
+                    app:buildingUpdateCountry="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_state"
+                    android:inputType="text"
+                    app:buildingUpdateState="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_city"
+                    android:inputType="text"
+                    app:buildingUpdateCity="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_address_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_address_type"
+                    android:inputType="text"
+                    app:buildingUpdateAddressType="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_address"
+                    android:inputType="text"
+                    app:buildingUpdateAddress="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_address_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_address_number"
+                    android:inputType="number"
+                    app:buildingUpdateAddressNumber="@{buildingUpdateViewModel.building}" />
+
+                <EditText
+                    android:id="@+id/et_building_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:hint="@string/building_company"
+                    android:inputType="number"
+                    app:buildingUpdateCompanyId="@{buildingUpdateViewModel.building}" />
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_name"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:hint="@string/building_name"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateName="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_zip_code"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_zip_code"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateZipCode="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_country"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_country"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateCountry="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_state"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_state"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateState="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_city"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_city"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateCity="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_address_type"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_address_type"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateAddressType="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_address"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_address"-->
+<!--                    android:inputType="text"-->
+<!--                    app:buildingUpdateAddress="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_address_number"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_address_number"-->
+<!--                    android:inputType="number"-->
+<!--                    app:buildingUpdateAddressNumber="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/et_building_company"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="55dp"-->
+<!--                    android:layout_marginStart="@dimen/default_margin"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="@dimen/default_margin"-->
+<!--                    android:layout_marginBottom="@dimen/default_margin"-->
+<!--                    android:hint="@string/building_company"-->
+<!--                    android:inputType="number"-->
+<!--                    app:buildingUpdateCompanyId="@{buildingUpdateViewModel.buildingRetrofit}" />-->
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/bt_building_cancel"
+            style="@style/BuildingButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/translucent_round_conner_button"
+            android:onClick="@{() -> buildingUpdateViewModel.onClose()}"
+            android:text="@string/building_cancel"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sv_building_update"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/bt_building_update"
+            style="@style/BuildingButtons"
+            android:background="@drawable/custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/building_update"
+            android:textAllCaps="false"
+            app:layout_constraintBaseline_toBaselineOf="@+id/bt_building_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.963"
+            app:layout_constraintStart_toEndOf="@+id/bt_building_cancel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

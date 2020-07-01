@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">Dataner</string>
+    <string name="add_building_text">Adicionar Filial</string>
+    <string name="add_user_building_text">Adicionar \n Usuário à Filial</string>
+    <string name="insights">Consumos</string>
+    <string name="details">Detalhes</string>
+
+    <string name="building_name">Nome do Prédio</string>
+    <string name="building_zip_code">CEP</string>
+    <string name="building_country">País</string>
+    <string name="building_state">Estado</string>
+    <string name="building_city">Cidade</string>
+    <string name="building_address_type">Logradouro</string>
+    <string name="building_address">Endereço</string>
+    <string name="building_address_number">Número</string>
+    <string name="building_company">Companhia</string>
+    <string name="building_update">Concluir</string>
+    <string name="building_cancel">Cancelar</string>
+    <string name="building_create">Adicionar Filial</string>
+    <string name="tv_new_building_label">Adicione uma filial</string>
+    <string name="tv_update_building_label">Editar</string>
+
+    <string name="add_device">Adicionar Device</string>
+    <string name="tv_new_device_label">Adicione um dispositivo</string>
+    <string name="device_create">Adicionar dispositivo</string>
+    <string name="device_id">ID do dispositivo</string>
+    <string name="device_description">Descrição do dispositivo</string>
+    <string name="device_type">Tipo</string>
+    <string name="device_workplace">ID do Ambiente</string>
+    <string name="tv_update_device_label">Atualize o dispositivo</string>
+    <string name="device_update">Atualizar dispositivo</string>
+
+    <string name="add_floor">Adicionar Andar</string>
+    <string name="add_workplace">Adicionar Ambiente</string>
+    <string name="confirm_update_workplace">Salvar</string>
+    <string name="add_worplace">Adicionar Ambiente</string>
+    <string name="workplace_item">Ambientes:</string>
+    <string name="floor_title">Andar</string>
+    <string name="workplace_title">Ambiente</string>
+    <string name="devices_title">Devices Ativos</string>
+    <string name="dialog_new_floor_title">Adicionar Novo Andar</string>
+    <string name="add_new">Adicionar</string>
+    <string name="dialog_new_workplace_title">Novo Ambiente</string>
+    <string name="dialog_update_workplace_title">Editar Ambiente</string>
+    <string name="dialog_new_workplace_msg">Defina o andar e nome do Ambiente</string>
+    <string name="existing_floor_alert">"Operação cancelada, Andar já cadastrado"</string>
+    <string name="cancelar">Cancelar</string>
+
+    <string name="account_name">Dataner</string>    <string name="password">Password</string>
+    <string name="password_hint">********</string>
+    <string name="forgot_your_login_info">Forgot your login info?</string>
+    <string name="remember_my_password">Remember My Password</string>
+    <string name="username">Username</string>
+    <string name="signIn">Sign In</string>
+    <string name="username_key">username</string>
+    <string name="password_key">password</string>
+
+    <string name="buildingId">buildingId</string>
+    <string name="workplaceId">workplaceId</string>
+    <string name="tool_bar">Insigths</string>
+    <string name="testando">Testando</string>
+    <string name="devices">Devices Ativos</string>
+    <string name="top">Top 5</string>
+    <string name="consumos">Maiores consumos de energia</string>
+    <string name="txtPaulista">1- Bandtec Paulista</string>
+    <string name="txtSé">2- Bandtec Sé</string>
+    <string name="txtSantaCruz">3- Bandtec Santa Cruz</string>
+    <string name="txtChacara">4- Bandtec Chacara Santo Antônio</string>
+    <string name="txtBarra">5- Bandtec Barra Funda</string>
+    <string name="txtSala1">1- Sala de aula 01</string>
+    <string name="txtSala2">2- Sala de aula 02</string>
+    <string name="txtSala03">3- Sala de reunião 1º andar</string>
+    <string name="txtSala04">4- Secretaria</string>
+    <string name="txtSala05">5- Sala dos professores</string>
+    <string name="txtDevice1">1- Ar-condionado - R$20/H</string>
+    <string name="txtDevice2">2- Luz - R$18/H</string>
+    <string name="txtDevice3">3- Televisão - R$15/H</string>
+    <string name="txtDevice4">4- Luz - R$13/H</string>
+    <string name="txtDevice5">5- Ar-condicionado - R$10/H</string>
+    <string name="telaConsumo">Consumo</string>
+    <string name="txtBuilding">Bandtec Paulista</string>
+    <string name="buildingConsumo">R$ 300/H</string>
+    <string name="deviceConsumo">Device: Luz</string>
+    <string name="deviceGasto">R$ 60/H</string>
+    <string name="workplaceConsumo">Sala de aula - 1º andar</string>
+    <string name="workplaceGasto">R$ 50/H</string>
+    <string name="Gasto">Previsão de gasto mensal:</string>
+    <string name="gastoMensal">R$ 3.500</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

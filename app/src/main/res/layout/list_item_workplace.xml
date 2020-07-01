@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="workplace"
+            type="com.example.datanermobile.screens.workplace.network.Workplace" />
+
+        <variable
+            name="clickListener"
+            type="com.example.datanermobile.screens.workplace.WorkplaceListener" />
+
+        <variable
+            name="workplaceDevicesListener"
+            type="com.example.datanermobile.screens.workplace.WorkplaceDevicesListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_text_view"
+        android:layout_marginTop="4dp">
+
+
+        <TextView
+            android:id="@+id/floor_number_tv"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:textColor="@color/listItemText"
+            android:textSize="@dimen/textItemSize"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/workplace_name_tv"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1000"
+            app:floorNumber="@{workplace}"/>
+
+
+        <TextView
+            android:id="@+id/workplace_name_tv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/listItemText"
+            android:textSize="@dimen/textItemSize"
+            android:gravity="center_horizontal"
+            app:layout_constraintBaseline_toBaselineOf="@+id/floor_number_tv"
+            app:layout_constraintEnd_toStartOf="@+id/devicesState_tv"
+            app:layout_constraintStart_toEndOf="@+id/floor_number_tv"
+            tools:text="Biblioteca"
+            app:description="@{workplace}"/>
+
+
+        <TextView
+            android:id="@+id/devicesState_tv"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/listItemText"
+            android:textSize="@dimen/textItemSize"
+            android:gravity="center_horizontal"
+            app:layout_constraintBaseline_toBaselineOf="@+id/workplace_name_tv"
+            app:layout_constraintEnd_toStartOf="@+id/details_tv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/workplace_name_tv"
+            tools:text="2000/3000"
+           app:deviceState="@{workplace}"/>
+
+        <TextView
+            android:id="@+id/details_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:text="@string/details"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:onClick="@{() -> workplaceDevicesListener.onClick(workplace)}"
+            app:layout_constraintBottom_toBottomOf="@+id/devicesState_tv"
+            app:layout_constraintEnd_toStartOf="@id/edit_img"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/devicesState_tv"
+            app:layout_constraintTop_toTopOf="@+id/devicesState_tv"
+            tools:text="Detalhes" />
+
+
+        <ImageView
+            android:id="@+id/edit_img"
+            android:layout_width="23dp"
+            android:layout_height="29dp"
+            android:layout_marginRight="8dp"
+            android:onClick="@{() -> clickListener.onClickUpdate(workplace)}"
+            app:layout_constraintBottom_toBottomOf="@+id/details_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/details_tv"
+            app:layout_constraintTop_toTopOf="@+id/details_tv"
+            app:srcCompat="@drawable/ic_mode_edit_black_16dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

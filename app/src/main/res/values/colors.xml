@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+
+    <color name="dataner_yellow">#FFC000</color>
+    <color name="dataner_black">#1A1A1A</color>
+    <color name="dataner_gray">#E4E4E4</color>
+    <color name="lightBlue">#42A5F5</color>
+    <color name="listItemText">#000</color>
+    <color name="white">#FEFEFE</color>
+    <color name="colorButtonNormal">#ffC002</color>
+
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#090808</color>
+
+    <color name="colorBackground">#010930</color>
+    <color name="colorDatanerAzul">#3162DE</color>
+    <color name="colorDatanerBlack">#0000</color>
+    <color name="colorDatanerRosa">#D81B60</color>
+   >
+
+<!--    <color name="colorPrimary">#3162DE</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+<!--    <color name="colorPrimary">#3162DE</color>-->
+<!--    <color name="colorPrimaryDark">#0000</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+    <color name="colorTextTool">#ffff</color>
+    <color name="delete_circle">#DC3800</color>
+</resources>

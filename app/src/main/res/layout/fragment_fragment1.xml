@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="200dp"
+    tools:context=".insights.Fragment1">
+
+    <TextView
+        android:id="@+id/paulista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtPaulista"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        android:onClick="spending"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sé"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtSé"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        android:onClick="spending"
+        app:layout_constraintTop_toBottomOf="@+id/paulista" />
+
+    <TextView
+        android:id="@+id/santa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtSantaCruz"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        android:onClick="spending"
+        app:layout_constraintTop_toBottomOf="@+id/sé" />
+
+    <TextView
+        android:id="@+id/chacara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtChacara"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        android:onClick="spending"
+        app:layout_constraintTop_toBottomOf="@+id/santa" />
+
+    <TextView
+        android:id="@+id/barra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:text="@string/txtBarra"
+        android:textColor="@color/dataner_black"
+        android:textSize="20sp"
+        android:onClick="spending"
+        app:layout_constraintTop_toBottomOf="@+id/chacara" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
