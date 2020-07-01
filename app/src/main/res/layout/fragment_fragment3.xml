@@ -18,7 +18,7 @@
         android:gravity="center_vertical"
         android:text="@string/txtDevice1"
         android:textColor="@color/dataner_black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:gravity="center_vertical"
         android:text="@string/txtDevice2"
         android:textColor="@color/dataner_black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/device1" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:gravity="center_vertical"
         android:text="@string/txtDevice3"
         android:textColor="@color/dataner_black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/device2" />
 
     <TextView
@@ -66,7 +66,7 @@
         android:gravity="center_vertical"
         android:text="@string/txtDevice5"
         android:textColor="@color/dataner_black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/device4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
