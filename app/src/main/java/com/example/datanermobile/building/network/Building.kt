@@ -1,6 +1,8 @@
 package com.example.datanermobile.building.network
 
 import android.os.Parcelable
+import com.appdynamics.eumagent.runtime.HttpRequestTracker
+import com.appdynamics.eumagent.runtime.Instrumentation
 import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -18,6 +20,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import java.net.URL
 
 data class Building(
     val buildingId: Int? = null,
@@ -66,11 +69,11 @@ data class BuildingRetrofitPut(
     val companyId: Int
 )
 
-private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
+//private const val BUILDING_BASE_URL = "http://10.0.0.106:7000/"
 //private const val BUILDING_BASE_URL = "http://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/"
 //private const val BUILDING_BASE_URL = "https://52.4.141.220/building/"
-//private const val BUILDING_BASE_URL = "http://54.173.83.33/building/"
+private const val BUILDING_BASE_URL = "http://54.173.83.33/building/"
 
 //private val okHttpClient = OkHttpClient.Builder()
 private val moshi = Moshi.Builder()
@@ -115,7 +118,11 @@ object BuildingApi {
     }
 
     fun sendRequestToAppDynamics(statusCode: Int) {
-        AppDynamics().sendRequest(statusCode, BUILDING_BASE_URL)
+        val tracker: HttpRequestTracker = Instrumentation.beginHttpRequest(URL(BUILDING_BASE_URL))
+        tracker.withResponseCode(statusCode)
+            .reportDone()
+
+//        AppDynamics().sendRequest(statusCode, BUILDING_BASE_URL)
     }
 }
 

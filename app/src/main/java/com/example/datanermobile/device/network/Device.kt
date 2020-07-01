@@ -1,6 +1,8 @@
 package com.example.datanermobile.device.network
 
 import android.os.Parcelable
+import com.appdynamics.eumagent.runtime.HttpRequestTracker
+import com.appdynamics.eumagent.runtime.Instrumentation
 import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.parcel.Parcelize
@@ -16,6 +18,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import java.net.URL
 
 @Parcelize
 data class AllWorkplaceDevices(
@@ -102,6 +105,10 @@ object DeviceApi {
     }
 
     fun sendRequestToAppDynamics(statusCode: Int) {
-        AppDynamics().sendRequest(statusCode, DEVICE_BASE_URL)
+        val tracker: HttpRequestTracker = Instrumentation.beginHttpRequest(URL(DEVICE_BASE_URL))
+        tracker.withResponseCode(statusCode)
+            .reportDone()
+
+//        AppDynamics().sendRequest(statusCode, DEVICE_BASE_URL)
     }
 }

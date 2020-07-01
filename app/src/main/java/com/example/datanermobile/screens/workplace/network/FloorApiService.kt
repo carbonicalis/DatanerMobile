@@ -1,5 +1,7 @@
 package com.example.datanermobile.screens.workplace.network
 
+import com.appdynamics.eumagent.runtime.HttpRequestTracker
+import com.appdynamics.eumagent.runtime.Instrumentation
 import com.example.datanermobile.appdynamics.AppDynamics
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -11,9 +13,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
+import java.net.URL
 
-//private const val BASE_URL = "http://54.173.83.33/floor/"
-private const val BASE_URL = "http://10.0.0.106:7002/"
+private const val BASE_URL = "http://54.173.83.33/floor/"
+//private const val BASE_URL = "http://10.0.0.106:7002/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -46,6 +49,10 @@ object FloorApi {
     }
 
     fun sendRequestToAppDynamics(statusCode: Int) {
-        AppDynamics().sendRequest(statusCode, BASE_URL)
+        val tracker: HttpRequestTracker = Instrumentation.beginHttpRequest(URL(BASE_URL))
+        tracker.withResponseCode(statusCode)
+            .reportDone()
+
+//        AppDynamics().sendRequest(statusCode, BASE_URL)
     }
 }
